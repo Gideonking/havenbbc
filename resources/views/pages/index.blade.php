@@ -44,15 +44,54 @@
 		</div>
     <div class="container header-start text-center">
         <div class="heading-icon">
-          <i class="fa fa-3x fa-heart"></i>
+          <i class="fa fa-3x fa-home"></i>
         </div>
-      <h1 class="main-text">Show your Love for the Humanity</h1>
-      <p class="text-center sub-text"><em class="first-line">Lorem ipsum dolor sit amet, consectetur adipisiciSng elit, sed do eiusmod tempor </em><em class="next-line"> incididunt ut labore et dolore magna aliqua.A sed do eiusmod tempor incididunt ut labore et dolore magna.</em></p>
+      <h1 class="main-text">Welcome to Haven Bible Baptist Church!</h1>
+      <p class="text-center sub-text"><em class="first-line">Still preaching the old-time gospel and singing the old-time Hymns
+
+        You are cordially invited to step back in time to visit
+       
+       a church that is still preaching the old-time Gospel
+       
+       as it applies to life in today's world. </em></p>
+       <ul class="list-unstyled list-inline">
+<li><a class="btn btn-primary btn-xl btn-block" >History</a></li>
+<li><a  class="btn btn-primary btn-xl btn-block" >Salvation</a></li>
+       </ul>
+
     </div>
+
+    <div class="divider col-sm-12 col-xs-12 col-md-12">
+      <div class="header-text"><span>Service</span> Times</div>
+    </div>  
+<!-- Service Times -->
+    <section class="blog">
+      <div class="container">
+      <h2>Sunday School</h2>
+      <table class="table">
+        <tr><th>Level</th><th>Time</th></tr>
+        <tr><td>All levels</td><td>9:00 AM - 10:00 AM</td></tr>
+      </table>
+      <h2>Worship Services</h2>
+      <table class="table">
+          <tr><th>Service</th><th>Time</th></tr>
+          <tr><td>Sunday Morning Worship Service</td><td>10:00 AM - 12:00 NN</td></tr>
+          <tr><td>Sunday Afternoon Worship Service</td><td>2:00 PM - 4:00 PM</td></tr>
+        </table>
+      <h2>Prayer Meeting</h2>
+      <table class="table">
+          <tr><th>Service</th><th>Time</th></tr>
+          <tr><td>Wednesday Prayer Meeting</td><td>6:00 PM - 8:00 PM</td></tr>
+        </table>
+
+
+      </div>
+      </section>
 
     <div class="divider col-sm-12 col-xs-12 col-md-12">
       <div class="header-text"><span>Blog</span> News</div>
     </div>
+
 
 			<section class="blog">
 				<div class="item col-md-4">
