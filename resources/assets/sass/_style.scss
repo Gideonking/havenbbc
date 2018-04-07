@@ -54,7 +54,9 @@ body {
 .col-md-4.subscribe-form {
 margin-bottom: 49px;
 }
-
+.divider{
+	margin-bottom: 49px;
+}
 p, li {
 	padding: 0;
 	font-family: 'Raleway',sans-serif;
@@ -63,6 +65,10 @@ p, li {
 	line-height: 28px;
 	color: #666;
 	list-style: none;
+}
+
+.section-web{
+	margin-bottom: 49px;
 }
 /******* End General ******/
 
@@ -534,6 +540,7 @@ section.blog {
 	height: auto;
 	border: 1px solid #e1e8ed;
 	background: #fff;
+	margin-bottom:20px;
 }
 
 .blok-read-sm img
