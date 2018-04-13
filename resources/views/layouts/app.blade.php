@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-  <title>{{config('app.name','HBBC')}} | {{$pageName}}</title>
+  <title>{{$pageName}} - {{config('app.name','HBBC')}}</title>
 		<meta name="generator" content="Bootply" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,6 +19,8 @@
 	<body>
 
         @include('inc.navbar')
+
+        
 @yield('content')
 
 @include('inc.footer')
@@ -43,8 +45,10 @@
   autoControls: true
   });
 </script>
-    <script type="text/javascript">
-    </script>
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'article-ckeditor' );
+</script>
  </body>
 </html>
         

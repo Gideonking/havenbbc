@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Event;
 class PagesController extends Controller
 {
     public function index(){
         $pageName = "Home";
-        return view('pages.index')->with('pageName', $pageName);
+        $events = Event::orderBy('start','asc')->take(3)->get();
+        return view('pages.index')->with('pageName', $pageName)->with('events',$events);
     }
 
     public function about(){
