@@ -23,6 +23,8 @@
         
 @yield('content')
 
+
+
 @include('inc.footer')
     <!-- script references -->
    <!--

@@ -9,7 +9,7 @@
             
            <div class="blok-read-sm content-block">
                 @include('inc.messages')
-      {!! Form::open(['action' => 'EventsController@store', 'method' => 'POST']) !!}
+      {!! Form::open(['action' => 'EventsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 <div class="form-group">
     {{Form::label('title','Title')}}
     {{Form::text('title','',['class' => 'form-control', 'placeholder' => 'Title'])}}
@@ -27,7 +27,12 @@
     {{Form::datetimelocal('end','',['class' => 'form-control'])}}
         </div>
     </div>
+    <br>
+    <div class="form-group">
+        {{Form::file('cover_image')}}
+    </div>
     <br>    
+    
   {{Form::submit('Submit',['class'=> 'btn btn-primary'])}}
 </div>
       {!! Form::close()!!}

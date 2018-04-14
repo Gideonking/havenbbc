@@ -23,7 +23,7 @@
           @foreach($events as $event)
         <div class="blog-event">
           <div class="featured-img">
-            <img src="/storage/img/dof2.jpg" width="150" alt="">
+            <img src="/storage/event_images/{{$event->cover_image}}" width="150" alt="">
           </div>
           <div class="featured-blog">
                 <a href="events/{{$event->id}}"> <h3>{{$event->title}}</h3></a>

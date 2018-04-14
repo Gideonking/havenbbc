@@ -17,8 +17,11 @@
                    
      
                <h4>{{$event->start}} to {{$event->end}}</h4>
-                <img src="/storage/img/dof2.jpg"/>
+                <img src="/storage/event_images/{{$event->cover_image}}"/>
                            <p>{{$event->description}}</p>
+                           <br>
+                           {!!$event->longdescription!!}
+                           <hr>
                         <small>
                             Created on: {{$event->created_at}}
                     <br>

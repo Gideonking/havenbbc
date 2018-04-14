@@ -56,9 +56,10 @@
         </div>
         <h1 class="main-text">Welcome to Haven Bible Baptist Church!</h1>
         <p class="text-center sub-text">
-            <em class="first-line">Still preaching the old-time gospel and singing the old-time Hymns You are cordially invited to step back in
-                time to visit a church that is still preaching the old-time Gospel as it applies to life in today's world.
-                </em>
+            <em class="first-line">
+                {{"Still preaching the old-time gospel and singing the old-time Hymns You are cordially invited to step back in
+                time to visit a church that is still preaching the old-time Gospel as it applies to life in today's world."
+                }}</em>
         </p>
         <ul class="list-unstyled list-inline">
             <li>
@@ -134,7 +135,7 @@
     <div class="item col-md-4">
         <div class="blok-read-sm">
             <a href="/events/{{$event->id}}" class="hover-image">
-                <img src="/storage/img/dof2.jpg" alt="image">
+                <img src="/storage/event_images/{{$event->cover_image}}" alt="image">
                 <span class="layer-block"></span>
             </a>
             <div class="content-block">

@@ -9,7 +9,8 @@ class PagesController extends Controller
 {
     public function index(){
         $pageName = "Home";
-        $events = Event::orderBy('start','asc')->take(3)->get();
+        $EC = new EventsController();
+        $events = $EC->transformMultiEventDates(Event::orderBy('start','asc')->take(3)->get());
         return view('pages.index')->with('pageName', $pageName)->with('events',$events);
     }
 

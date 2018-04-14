@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Event;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EventsController extends Controller
 {
@@ -14,11 +16,12 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //  
+        //
         //return Event::all();
-        $events = Event::orderBy('start','asc')->get();
+        $events = Event::orderBy('start', 'asc')->get();
+        $events = self::transformMultiEventDates($events);
         $pageName = 'Events';
-        return view('events.index')->with('pageName',$pageName)->with('events',$events);
+        return view('events.index')->with('pageName', $pageName)->with('events', $events);
     }
 
     /**
@@ -27,8 +30,8 @@ class EventsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {  $pageName = 'Create Event';
-        return view('events.create')->with('pageName',$pageName);
+    {$pageName = 'Create Event';
+        return view('events.create')->with('pageName', $pageName);
     }
 
     /**
@@ -40,20 +43,37 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'=>'required',
-            'description' =>'required',
+            'title' => 'required',
+            'description' => 'required',
             'start' => 'required',
-            'end' => 'required'
+            'end' => 'required',
+            'cover_image' => 'image|nullable|max:1999',
         ]);
+//Handle file upload
+        if ($request->hasFile('cover_image')) {
+//get file name with extension
+$filenamewithExt = $request->file('cover_image')->getClientOriginalName();
+//get file name
+$fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
+//get ext
+$extension = $request->file('cover_image')->getClientOriginalExtension();
+//filename to store
+$fileNameToStore = $fileName.'_'.time().'.'.$extension;
+//upload image
+$path = $request->file('cover_image')->storeAs('public/event_images',$fileNameToStore);
+        } else {
+            $fileNameToStore = "noimage.jpg";
+        }
+        $event = new Event;
+        $event->title = $request->input('title');
+        $event->description = $request->input('description');
+        $event->longdescription = $request->input('longdescription');
+        $event->cover_image = $fileNameToStore;
+        $event->start = $request->input('start');
+        $event->end = $request->input('end');
+        $event->save();
 
-       $event = new Event;
-       $event->title = $request->input('title');
-       $event->description = $request->input('description');
-       $event->start = $request->input('start');
-       $event->end = $request->input('end');
-       $event->save();
-
-       return redirect('/events')->with('success','Event Created')->with('pageName','Events');
+        return redirect('/events')->with('success', 'Event Created')->with('pageName', 'Events');
     }
 
     /**
@@ -65,9 +85,10 @@ class EventsController extends Controller
     public function show($id)
     {
         //
-        $event = Event::find($id);
+        $event = self::transformEventDates(Event::find($id));
+
         $pageName = "Event: " . $event->title;
-        return view('events.show')->with('event',$event)->with('pageName',$pageName);
+        return view('events.show')->with('event', $event)->with('pageName', $pageName);
     }
 
     /**
@@ -79,7 +100,16 @@ class EventsController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
-        return view('events.edit') -> with('event', $event) -> with('pageName', 'Edit Event');
+
+        $startDt = Carbon::parse($event->start);
+        $endDt = Carbon::parse($event->end);
+
+        $newStart = $startDt->format('Y-m-d\Th:i:s');
+        $newEnd = $endDt->format('Y-m-d\Th:i:s');
+
+        $event->start = $newStart;
+        $event->end = $newEnd;
+        return view('events.edit')->with('event', $event)->with('pageName', 'Edit Event');
     }
 
     /**
@@ -91,22 +121,42 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
         $this->validate($request, [
-            'title'=>'required',
-            'description' =>'required',
+            'title' => 'required',
+            'description' => 'required',
             'start' => 'required',
-            'end' => 'required'
+            'end' => 'required',
+            'cover_image' => 'image|nullable|max:1999',
         ]);
 
-       $event = Event::find($id);
-       $event->title = $request->input('title');
-       $event->description = $request->input('description');
-       $event->start = $request->input('start');
-       $event->end = $request->input('end');
-       $event->save();
 
-       return redirect('/events')->with('success','Event Edited')->with('pageName','Events');
+//Handle file upload
+if ($request->hasFile('cover_image')) {
+    //get file name with extension
+    $filenamewithExt = $request->file('cover_image')->getClientOriginalName();
+    //get file name
+    $fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
+    //get ext
+    $extension = $request->file('cover_image')->getClientOriginalExtension();
+    //filename to store
+    $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+    //upload image
+    $path = $request->file('cover_image')->storeAs('public/event_images',$fileNameToStore);
+            } 
+
+        $event = Event::find($id);
+        $event->title = $request->input('title');
+        $event->description = $request->input('description');
+        $event->longdescription = $request->input('longdescription');
+        if ($request->hasFile('cover_image')) {
+            $event->cover_image = $fileNameToStore;
+        }
+        $event->start = $request->input('start');
+        $event->end = $request->input('end');
+        $event->save();
+
+        return redirect('/events')->with('success', 'Event Edited')->with('pageName', 'Events');
     }
 
     /**
@@ -117,8 +167,49 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-       $event = Event::find($id);
-       $event->delete();
-       return redirect('/events')->with('success','Event Deleted')->with('pageName','Events');
+        $event = Event::find($id);
+if($event->cover_image != 'noimage.jpg'){
+//delete image
+Storage::delete('public/event_images/'.$event->cover_image);
+}
+
+        $event->delete();
+
+        return redirect('/events')->with('success', 'Event Deleted')->with('pageName', 'Events');
+    }
+
+    //added functionlities
+
+    private function sameDay($dt1, $dt2)
+    {
+        $date1 = Carbon::parse($dt1);
+        $date2 = Carbon::parse($dt1);
+        if ($date1->eq($date2)) {
+            return true;
+        } else {
+            return false;
+        }
+
+        return false;
+    }
+
+    public function transformEventDates($event)
+    {
+        $event->start = Carbon::parse($event->start)->format('l F j, Y h:i A');
+        if (self::sameDay($event->start, $event->end)) {
+            $event->end = Carbon::parse($event->end)->format('h:i A');
+        } else {
+            $event->end = Carbon::parse($event->end)->format('l F j, Y h:i A');
+        }
+
+        return $event;
+    }
+
+     public function transformMultiEventDates($events)
+    {
+        foreach ($events as $event) {
+            $event = self::transformEventDates($event);
+        }
+        return $events;
     }
 }
