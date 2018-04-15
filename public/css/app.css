@@ -8414,13 +8414,13 @@ button.close {
 }
 
 @media only screen and (max-width: 32.5em) {
-  body {
-    -webkit-box-shadow: inset 0 0 9.375em rgba(0, 0, 0, 0.5);
-    /* 150 */
-    /* 150 */
-    box-shadow: inset 0 0 9.375em rgba(0, 0, 0, 0.5);
-    /* 150 */
-  }
+  /*
+	body
+	{
+		-webkit-box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, .5 ); 
+		-moz-box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, 5 ); 
+		box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, .5 );  150
+	} */
 
   .container,
   #wrapper {
@@ -10830,6 +10830,12 @@ body {
   padding: 0px;
   font-family: 'Varela Round', sans-serif;
   color: #354b5e;
+  overflow: auto;
+  height: 100%;
+}
+
+html {
+  max-width: 100%;
 }
 
 .col-md-4.subscribe-form {

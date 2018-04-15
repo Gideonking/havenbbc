@@ -2,7 +2,7 @@
 
 @section('content')
 <section>
-    <div class="divider col-sm-12 col-xs-12 col-md-12"><div class="header-text"><span>Event</span></div></div>
+    <div class="divider col-sm-12 col-xs-12 col-md-12"><div class="header-text"><span>{{$event->title}}</span></div></div>
 
     <div class="container">
 
@@ -13,7 +13,7 @@
                  {!!Form::close()!!}
                <a href="/events/{{$event->id}}/edit" class="btn btn-default pull-right"> Edit</a>
               
-               <h1>{{$event->title}}</h1>
+              
                    
      
                <h4>{{$event->start}} to {{$event->end}}</h4>
