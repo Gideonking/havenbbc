@@ -18,4 +18,9 @@ class PagesController extends Controller
         $pageName = "About";
         return view('pages.about')->with('pageName', $pageName);
     }
+
+    public function services(){
+        $pageName = "Service Times";
+        return view('pages.services')->with('pageName',$pageName);
+    }
 }

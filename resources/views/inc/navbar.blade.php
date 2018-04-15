@@ -18,7 +18,7 @@
               <ul class="nav navbar-nav">
                   <li @if($pageName == "Home") class="selected" @endif><a href="/">Home</a></li>
                   <li @if($pageName == "About") class="selected" @endif><a href="/about">About</a></li>
-                  <li><a href="service.html">Sevices</a></li>
+                  <li @if($pageName == "Service Times") class="selected" @endif><a href="/services">Services</a></li>
                   <li><a href="gallery.html">Gallery</a></li>
         <li class= "hidden-xs hidden-sm">
           <a rel="home" href="index.html"><img class="logo" src="/storage/img/logo.png" width="200" alt="logo"></a>

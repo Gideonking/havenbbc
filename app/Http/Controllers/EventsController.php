@@ -45,8 +45,8 @@ class EventsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'start' => 'required',
-            'end' => 'required',
+            'start' => 'required|before:end',
+            'end' => 'required|after:start',
             'cover_image' => 'image|nullable|max:1999',
         ]);
 //Handle file upload
@@ -104,8 +104,8 @@ $path = $request->file('cover_image')->storeAs('public/event_images',$fileNameTo
         $startDt = Carbon::parse($event->start);
         $endDt = Carbon::parse($event->end);
 
-        $newStart = $startDt->format('Y-m-d\Th:i:s');
-        $newEnd = $endDt->format('Y-m-d\Th:i:s');
+        $newStart = $startDt->format('Y-m-d\TH:i:s');
+        $newEnd = $endDt->format('Y-m-d\TH:i:s');
 
         $event->start = $newStart;
         $event->end = $newEnd;
@@ -125,8 +125,8 @@ $path = $request->file('cover_image')->storeAs('public/event_images',$fileNameTo
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'start' => 'required',
-            'end' => 'required',
+            'start' => 'required|before:end',
+            'end' => 'required|after:start',
             'cover_image' => 'image|nullable|max:1999',
         ]);
 
