@@ -14,6 +14,11 @@ require('./nav-hover.min');
 
 window.Vue = require('vue');
 
+
+
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -21,6 +26,10 @@ window.Vue = require('vue');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+
+//picture viewer
+import VuePictureSwipe from 'vue-picture-swipe';
+Vue.component('vue-picture-swipe', VuePictureSwipe);
 
 const app = new Vue({
     el: '#app'

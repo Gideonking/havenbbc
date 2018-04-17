@@ -21,5 +21,14 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/services', 'PagesController@services');
 
+Route::get('/contact', 'PagesController@contact');
+
+//user defined methods
+Route::put('/galleries/photos/{gallery}', 'GalleriesController@updateMany')->name('galleries.updatemany');
+
+//resources
+
 Route::resource('events','EventsController');
 Route::resource('ministries','MinistriesController');
+Route::resource('galleries','GalleriesController');
+Route::resource('photos','PhotosController');

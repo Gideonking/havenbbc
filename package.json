@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "js-beautify": "^1.7.5",
-    "npm": "^5.8.0"
+    "npm": "^5.8.0",
+    "vue-picture-swipe": "^0.1.7"
   }
 }

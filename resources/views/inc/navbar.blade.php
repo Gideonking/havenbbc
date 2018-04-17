@@ -19,14 +19,14 @@
                   <li @if($pageName == "Home") class="selected" @endif><a href="/">Home</a></li>
                   <li @if($pageName == "About") class="selected" @endif><a href="/about">About</a></li>
                   <li @if($pageName == "Service Times") class="selected" @endif><a href="/services">Service Times</a></li>
-                  <li><a href="gallery.html">Gallery</a></li>
+                  <li @if($pageName == "Gallery") class="selected" @endif><a href="/galleries">Gallery</a></li>
         <li class= "hidden-xs hidden-sm">
           <a rel="home" href="/"><img class="logo" src="/storage/img/logo.png" width="200" alt="logo"></a>
         </li>
                   <li><a href="/events">Events</a></li>
                   <li><a href="/ministries">Ministries</a></li>
                   <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact</a></li>
+                  <li @if($pageName == "Contact Us") class="selected" @endif><a href="/contact">Contact</a></li>
               </ul>
           </div>
       </div>

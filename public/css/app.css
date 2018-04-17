@@ -11560,10 +11560,25 @@ section.blog {
 
 .carousel {
   position: relative;
-  top: 30px;
   margin-bottom: 35px;
   float: left;
   width: 100%;
+}
+
+.carousel-gallery {
+  height: 300px;
+}
+
+.carousel-fade .item {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity .75s ease-in-out;
+  transition: opacity .75s ease-in-out;
+}
+
+.carousel-fade .item.active {
+  opacity: 1;
 }
 
 .carousel-control.left,
@@ -11590,6 +11605,10 @@ section.blog {
   font-size: 50px;
   font-weight: bold;
   background: rgba(152, 168, 173, 0.43);
+}
+
+.carousel-gallery {
+  width: 400px !important;
 }
 
 /******* Carousel End ******/
@@ -12519,5 +12538,25 @@ footer {
   height: 30px;
   text-indent: -9999px;
   z-index: 9999;
+}
+
+.my-gallery {
+  width: 100%;
+}
+
+.my-gallery img {
+  width: 100%;
+  height: auto;
+}
+
+.my-gallery figure {
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 300px;
+}
+
+.my-gallery figcaption {
+  display: none;
 }
 
