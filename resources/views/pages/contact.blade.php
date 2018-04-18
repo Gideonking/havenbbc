@@ -7,19 +7,19 @@
 
                     <div class="widget">
                         <h3 class="widget-title style5">Contact</h3>
-                        <p>Morbi rutrum massa eget mi gravida, sit amet mollis magna gravida. Morbi sodales, ligula quis ornare bibendum, magna erat convallis ipsum, id posuere ligula massa vitae leo.</p>
+                        <p>You can reach us through these contacts</p>
                         <ul class="clearfix">
                             <li>
-                                <p><span class="fa fa-envelope-o"></span>Email: <a href="mailto:humanity@gmail.com">humanity@gmail.com</a></p>
+                                <p><span class="fa fa-envelope-o"></span>Email: <a href="mailto:havenbbc1996@gmail.com">havenbbc1996@gmail.com</a></p>
                             </li>
                             <li>
-                                <p><span class="fa fa-phone"></span>Phone: (+84) XXX-349-0600</p>
+                                <p><span class="fa fa-phone"></span>Phone: (+63) 915 325 4919</p>
                             </li>
                             <li>
-                                <p><span class="fa fa-fax"></span>Fax: (+84) 740-349-0600</p>
+                                <p><span class="fa fa-facebook"></span><a href="https://web.facebook.com/havenbbc">&nbsp;&nbsp;&nbsp;&nbsp;Facebook Page</a></p>
                             </li>
                             <li>
-                                <p><span class="fa fa-map-marker"></span>Address: Technext,Sylhet</p>
+                                <p><span class="fa fa-map-marker"></span>Address: L 18, B 21, Jasmin St., Almanza Dos, Las Pinas, Metro Manila</p>
                             </li>
                         </ul>
                     </div>
@@ -34,23 +34,26 @@
             <!-- Form Area -->
             <div class="contact-form">
                 <!-- Form -->
-                <form id="contact-us" method="post" action="#">
+                {!! Form::open(['action' => 'FeedbacksController@store','id'=>'contact-us', 'method' => 'POST']) !!}
+                    @include('inc.messages')
                     <!-- Left Inputs -->
                     <div class="col-xs-12 wow animated slideInLeft" data-wow-delay=".5s">
                         <!-- Name -->
                         <input type="text" name="name" id="name" required="required" class="form" placeholder="Name" />
                         <!-- Email -->
-                        <input type="email" name="mail" id="mail" required="required" class="form" placeholder="Email" />
+                        <input type="email" name="email" id="mail" required="required" class="form" placeholder="Email" />
 
                     </div><!-- End Left Inputs -->
                     <!-- Right Inputs -->
                     <div class="col-xs-12 wow animated slideInRight" data-wow-delay=".5s">
                         <!-- Message -->
                         <textarea name="message" id="message" class="form textarea"  placeholder="Message"></textarea>
+                        <div class="g-recaptcha col-xs-12" data-sitekey="6Lfl1VMUAAAAABIU9JamQJfDJ_MdnyjJGC0uaBWO"></div>
                     </div><!-- End Right Inputs -->
+                   
                     <!-- Bottom Submit -->
                     <div class="relative fullwidth col-xs-12">
-                        <!-- Send Button -->
+                        <!-- Send Button --><br>
                         <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button>
                     </div><!-- End Bottom Submit -->
                     <!-- Clear -->
@@ -71,8 +74,7 @@
         <!-- wrapper -->
     </section>
   <section class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.211958629328!2d91.83379900000003!3d24.909438007883935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37505558dd0be6a1%3A0x65c7e47c94b6dc45!2sTechnext!5e1!3m2!1sen!2s!4v1425297675833" width="100%" height="450" frameborder="0" style="border:0">
+      <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA09MBHmTOUkYyYZJR0g_2fwMw1qb-ftUw&q=Haven+Bible+Baptist+Church+Las+Piñas" width="100%" height="450" frameborder="0" style="border:0">
       </iframe>
   </section>
   @endsection
-  AIzaSyA09MBHmTOUkYyYZJR0g_2fwMw1qb-ftUw

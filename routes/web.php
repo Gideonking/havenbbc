@@ -32,3 +32,4 @@ Route::resource('events','EventsController');
 Route::resource('ministries','MinistriesController');
 Route::resource('galleries','GalleriesController');
 Route::resource('photos','PhotosController');
+Route::resource('feedbacks','FeedbacksController');

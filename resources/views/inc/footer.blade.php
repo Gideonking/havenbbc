@@ -20,8 +20,8 @@
               <i class="fa fa-2x  fa-instagram"></i>
             </div>
           </div>
-           <p class="text-center footer-text1">123 456 7890</p>
-            <p class="text-center footer-text">humanity@shuvohabib.com</p></div>
+           <p class="text-center footer-text1"></p>
+            <p class="text-center footer-text1">havenbbc1996@gmail.com</p></div>
         <div class="footer-third col-xs-12 col-sm-4 col-md-4">
           <div class="copyright">
               <span>Copyright 2014 Theme</span><br>

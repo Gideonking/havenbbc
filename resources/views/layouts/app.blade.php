@@ -14,7 +14,8 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="{{asset('css/app.css')}}" rel="stylesheet"/>
-		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body>
 
