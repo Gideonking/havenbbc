@@ -6,7 +6,6 @@
     <div class="divider col-sm-12 col-xs-12 col-md-12"><div class="header-text">Create <span>Ministry</span></div></div>
 
     <div class="container">
-            
            <div class="blok-read-sm content-block">
                 @include('inc.messages')
       {!! Form::open(['action' => 'MinistriesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}

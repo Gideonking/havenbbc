@@ -3,19 +3,22 @@
 @section('content')
  <div class="divider col-sm-12 col-xs-12 col-md-12">
           <div class="header-text"><span>Gallery</span> Images</div>
+          <br>
+          <a href="/galleries/create" class="btn btn-success"> Create Gallery</a>
         </div>
         
 
         <section id="clients">
-
-    <!-- Team Inner -->
+       <!-- Team Inner -->
           <div class="inner team">
-
+             
       <!-- Header -->
     
 
       <!-- Members -->
       <div class="team-members inner-details">
+          
+   
         @if(count($galleries)> 0)
         @foreach($galleries as $gallery)
         <!-- Member -->

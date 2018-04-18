@@ -7,10 +7,14 @@
         <div class="header-text">
             <span>Ministries</span></div>
         </div>
-           
+       
                 <section class="work-block">   
-    
+                  <div class="form-group"><a href="/ministries/create" class="btn btn-success"> Create Ministry</a>
+                  </div>
+                    
+                   
                         <div class="container">
+                          
                           <div class="row">
                             <div class="col-md-12">
                                 @if(count($ministries)> 0)

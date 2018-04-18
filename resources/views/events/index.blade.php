@@ -17,7 +17,9 @@
         </li>
     </ul>
 
+    <a href="/events/create" class="btn btn-success pull-right"> Create Event</a>
     <div class="tab-content ">
+      
       <div class="tab-pane active" id="1">
           @if(count($events)> 0)
           @foreach($events as $event)
