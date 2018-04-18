@@ -33,3 +33,7 @@ Route::resource('ministries','MinistriesController');
 Route::resource('galleries','GalleriesController');
 Route::resource('photos','PhotosController');
 Route::resource('feedbacks','FeedbacksController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

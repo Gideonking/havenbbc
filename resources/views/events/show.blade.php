@@ -7,12 +7,13 @@
     <div class="container">
 
            <div class="blok-read-sm content-block">
+               @if(!Auth::guest())
                 {!!Form::open(['action'=>['EventsController@destroy',$event->id],'method' => 'POST', 'class' => 'pull-right'])!!}
                 {{Form::hidden('_method','DELETE')}}
                 {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
                  {!!Form::close()!!}
                <a href="/events/{{$event->id}}/edit" class="btn btn-default pull-right"> Edit</a>
-              
+              @endif
               
                    
      

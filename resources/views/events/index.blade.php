@@ -16,8 +16,9 @@
         <li><a href="#3" data-toggle="tab">Upcoming Event</a>
         </li>
     </ul>
-
+    @if(!Auth::guest())
     <a href="/events/create" class="btn btn-success pull-right"> Create Event</a>
+    @endif
     <div class="tab-content ">
       
       <div class="tab-pane active" id="1">
@@ -32,8 +33,10 @@
               <p><b>{{$event->start}} to {{$event->end}}</b></p>
               <p>{{$event->description}}</p>
               <a href="events/{{$event->id}}"><button class="button-info">Read More</button></a>
+              @if(!Auth::guest())
               <a href="events/{{$event->id}}/edit"><button class="button-info">Edit</button></a>
-          </div>
+         @endif
+            </div>
         </div>
         @endforeach
         @else

@@ -4,7 +4,9 @@
  <div class="divider col-sm-12 col-xs-12 col-md-12">
           <div class="header-text"><span>Gallery</span> Images</div>
           <br>
+          @if(!Auth::guest())
           <a href="/galleries/create" class="btn btn-success"> Create Gallery</a>
+          @endif
         </div>
         
 

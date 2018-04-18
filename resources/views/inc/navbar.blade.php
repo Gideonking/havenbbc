@@ -1,4 +1,4 @@
-<div class="header container">
+<div class="header container" id={{$pageName = ''}}>
     <div class="visible-xs visible-sm col-xs-12 col-sm-12 text-center sm-logo">
       <a rel="home" href="/">
         <img src="/storage/img/logo.png" width="200" alt="logo">

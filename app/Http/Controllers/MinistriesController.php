@@ -7,6 +7,10 @@ use App\Ministry;
 use Illuminate\Support\Facades\Storage;
 class MinistriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['index','show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -64,6 +68,7 @@ $path = $request->file('cover_image')->storeAs('public/ministry_images',$fileNam
         $ministry->description = $request->input('description');
         $ministry->longdescription = $request->input('longdescription');
         $ministry->cover_image = $fileNameToStore;
+        $ministry->user_id = auth()->user()->id;
         $ministry->save();
 
         return redirect('/ministries')->with('success', 'Ministry Created')->with('pageName', 'Ministries');
@@ -132,6 +137,7 @@ if ($request->hasFile('cover_image')) {
         if ($request->hasFile('cover_image')) {
             $ministry->cover_image = $fileNameToStore;
         }
+
         $ministry->save();
 
         return redirect('/ministries')->with('success', 'Ministry Edited')->with('pageName', 'Ministries');

@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class GalleriesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['index','show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -67,6 +72,7 @@ class GalleriesController extends Controller
         $gallery = new Gallery;
         $gallery->title = $request->input('title');
         $gallery->description = $request->input('description');
+        $gallery->user_id = auth()->user()->id;
         $gallery->save();
         //saving the photos
          self::storePhotos($request->file('photos'),$gallery->id);

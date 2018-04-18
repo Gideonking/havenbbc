@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Storage;
 class EventsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['index','show']]);
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -71,6 +80,7 @@ $path = $request->file('cover_image')->storeAs('public/event_images',$fileNameTo
         $event->cover_image = $fileNameToStore;
         $event->start = $request->input('start');
         $event->end = $request->input('end');
+        $event->user_id = auth()->user()->id;
         $event->save();
 
         return redirect('/events')->with('success', 'Event Created')->with('pageName', 'Events');

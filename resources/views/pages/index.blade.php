@@ -85,7 +85,7 @@
    
 </section>
 <!-- Events -->
-<section>
+<section class=" wow fadeIn">
     <div class="divider col-sm-12 col-xs-12 col-md-12">
         <div class="header-text">
             <span>Events</span> & News</div>

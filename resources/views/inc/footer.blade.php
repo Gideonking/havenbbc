@@ -25,7 +25,12 @@
         <div class="footer-third col-xs-12 col-sm-4 col-md-4">
           <div class="copyright">
               <span>Copyright 2014 Theme</span><br>
-              <span>All Rights Reserved</span>
+              <span>All Rights Reserved</span>   
+              
+          @if(Auth::guest())
+              <br>
+              <span><a href="{{ route('login') }}">Admin Login</a></span>
+          @endif
           </div>
         </div>
     </div>

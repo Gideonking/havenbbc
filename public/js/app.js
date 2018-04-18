@@ -1564,6 +1564,8 @@ __webpack_require__(39);
 __webpack_require__(40);
 __webpack_require__(42);
 __webpack_require__(43);
+//require('./mdb.min');
+//require('./popper.min');
 
 window.Vue = __webpack_require__(44);
 
