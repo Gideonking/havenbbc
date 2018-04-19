@@ -1,6 +1,12 @@
 // Your custom styles
+/*
 $grid-breakpoints: (
   sm: 480px,
   md: 768px,
   lg: 1024px
-);
+);*/
+
+section.section-spaced {
+	margin-top: 70px;
+	margin-bottom: 70px;
+}

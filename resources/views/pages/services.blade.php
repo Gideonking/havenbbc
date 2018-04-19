@@ -1,10 +1,6 @@
 
 @extends('layouts.app') @section('content')
 <section>
-        <div class="divider col-sm-12 col-xs-12 col-md-12">
-                <div class="header-text">
-                    <span>Service</span> Times</div>
-            </div>
 @include('inc.static.services')
    <br>
    <div class="container blok-container">

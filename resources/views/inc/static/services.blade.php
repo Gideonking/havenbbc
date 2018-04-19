@@ -1,4 +1,12 @@
+<section class="section-spaced">
 <div class="container">
+
+        <section>
+                <div class="divider col-sm-12 col-xs-12 col-md-12">
+                    <div class="header-text">
+                        <span>Service</span> Times
+                    </div>
+                </div>
     <h2>Sunday School</h2>
     <table class="table">
         <tr>
@@ -39,3 +47,4 @@
 
 
 </div>
+</section>

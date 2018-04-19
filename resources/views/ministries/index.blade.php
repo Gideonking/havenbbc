@@ -8,8 +8,10 @@
             <span>Ministries</span></div>
         </div>
        
-                <section class="work-block">   
+                <section class="work-block"> 
+                  @if(!Auth::guest())  
                   <div class="form-group"><a href="/ministries/create" class="btn btn-success"> Create Ministry</a>
+                  @endif
                   </div>
                     
                    
