@@ -17,8 +17,8 @@ class PagesController extends Controller
     public function about(){
         $pageName = "About";
         $path = storage_path()."\app\public\json\about.json"; 
-        $about = json_decode(file_get_contents($path), true);
-     
+        $about = json_decode(file_get_contents($path));
+     //dd($about);
         return view('pages.about')->with('pageName', $pageName)->with('about',$about);
     }
 

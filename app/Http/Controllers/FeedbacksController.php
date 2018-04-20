@@ -8,6 +8,16 @@ use App\Feedback;
 
 class FeedbacksController extends Controller
 {
+
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['store']]);
+    }
     //$token = '';
     /**
      * Display a listing of the resource.
@@ -16,7 +26,9 @@ class FeedbacksController extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks = Feedback::orderBy('created_at', 'asc')->get();
+        $pageName = 'Feedbacks';
+        return view('admin.feedbacks.index')->with('pageName', $pageName)->with('feedbacks', $feedbacks);
     }
 
     /**
