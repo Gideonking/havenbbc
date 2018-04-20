@@ -61,7 +61,44 @@
       </div>
   </div>
 </section>
+<!-- Our Belief -->
+<section class="section-spaced">
+    <div class="container">
+        <div class="divider col-sm-12 col-xs-12 col-md-12">
+            <div class="header-text">Our <span>Belief</span></div><br>
+            <div class="container">
 
-  
+ 
+@if(count($about['belief'])>0)
+
+@for($i=0;$i<count($about['belief']);$i++)
+<div class="col-md-6">
+                <div class="panel-group panel-responsive">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse{{$i}}">{{$about['belief'][$i]['topic']}}</a>
+                      </h4>
+                    </div>
+                    <div id="collapse{{$i}}" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        @foreach($about['belief'][$i]['stand'] as $stand)
+                        <p class="lead">{{$stand}}</p>
+                        @endforeach
+                        @foreach($about['belief'][$i]['verses'] as $verse)
+                        <p><i>{{$verse}}</i></p>
+                        @endforeach
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+                </div>
+@endfor
+@endif
+            </div>
+        </div>
+    </div>
+  </section>
 
 @endsection

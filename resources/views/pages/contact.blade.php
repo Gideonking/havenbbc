@@ -33,6 +33,8 @@
           <div class="inner contact">
             <!-- Form Area -->
             <div class="contact-form">
+                <h3>We would like to hear from you!<small class="text-muted"> fill this form to send us a message</small></h3>
+                
                 <!-- Form -->
                 {!! Form::open(['action' => 'FeedbacksController@store','id'=>'contact-us', 'method' => 'POST']) !!}
                     @include('inc.messages')

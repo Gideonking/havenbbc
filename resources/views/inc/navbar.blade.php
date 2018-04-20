@@ -14,19 +14,28 @@
               <span class="icon-bar"></span>
               </button>
           </div>
-          <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                  <li @if($pageName == "Home") class="selected" @endif><a href="/">Home</a></li>
-                  <li @if($pageName == "About") class="selected" @endif><a href="/about">About</a></li>
-                  <li @if($pageName == "Service Times") class="selected" @endif><a href="/services">Service Times</a></li>
-                  <li @if($pageName == "Gallery") class="selected" @endif><a href="/galleries">Gallery</a></li>
+          <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+              <ul class="nav navbar-nav mr-auto">
+                  <li class="nav-item"><a href="/">Home</a></li>
+                  <li class="nav-item"><a href="/about">About</a></li>
+                  <li class="nav-item"><a href="/services">Service Times</a></li>
+                  <li class="nav-item"><a href="/galleries">Gallery</a></li>
         <li class= "hidden-xs hidden-sm">
           <a rel="home" href="/"><img class="logo" src="/storage/img/logo.png" width="200" alt="logo"></a>
         </li>
-                  <li><a href="/events">Events</a></li>
-                  <li><a href="/ministries">Ministries</a></li>
-                  <li><a href="donate.html">Donate</a></li>
-                  <li @if($pageName == "Contact Us") class="selected" @endif><a href="/contact">Contact</a></li>
+                  <li class="nav-item"><a href="/events">Events</a></li>
+                  <li class="nav-item"><a href="/ministries">Ministries</a></li>
+                  <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown link
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                      </li>
+                  <li class="nav-item"><a href="/contact">Contact</a></li>
               </ul>
           </div>
       </div>
