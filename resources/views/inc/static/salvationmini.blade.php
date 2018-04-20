@@ -1,13 +1,13 @@
-<section class="section-spaced">
+<section class="section-spaced" style="background-color:lightgoldenrodyellow;">
     
     <div class="container">  
-        <div class="divider col-sm-12 col-xs-12 col-md-12">
+        <div class="divider col-sm-12 col-xs-12 col-md-12 fromTop">
             <div class="header-text">
                 <span>Salvation</span></div>
         </div>
             <br>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 fromRight">
             <blockquote class="blockquote text-center"> <h3>“For by grace are ye saved through faith; 
                 and that not of yourselves:
                  it is the gift of God...“</h3>
@@ -21,7 +21,7 @@
                         </ul>
                     </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 fromLeft">
                 <p>
                         Salvation is a free gift of God. 
                         The death of Christ on the cross 

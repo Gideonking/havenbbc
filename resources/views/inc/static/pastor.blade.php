@@ -1,21 +1,21 @@
-<section class="section-spaced">
-<div class="container blog">
-        <div class="divider col-sm-12 col-xs-12 col-md-12">
+<section class="section-spaced" style="background-color:rebeccapurple;color:honeydew">
+<div class="container blog ">
+        <div class="divider col-sm-12 col-xs-12 col-md-12 ">
                 <div class="header-text">
                     Our <span>Pastor</span></div>
             </div>
-        <div class="col-sm-12 col-xs-12 col-md-12">
+        <div class="col-sm-12 col-xs-12 col-md-12 fromTop">
         <div class="text-center">
                 <img src="/storage/page_images/pastor2.jpg" alt="" class="center-block img-responsive img-circle " width="25%"> 
-       <h4><b>PASTOR</b></h4>
-       <h4>Ramon Geronimo</h4>
+       <h4><b>Rev. Ramon Geronimo</b></h4>
+       <h4>Pastor</h4>
 
        <br>
         </div>
         </div>
-        <div class="row">
+        <div class="row fromBottom">
         <div class="col-sm-12 col-xs-12 col-md-8">
-                       <blockquote class="blockquote">“Remember them which have the rule over you, 
+                       <blockquote class="blockquote ">“Remember them which have the rule over you, 
                                who have spoken unto you the word of God: 
                                whose faith follow, considering the end of their conversation.“ 
                               <cite> Hebrews 13:7</cite>

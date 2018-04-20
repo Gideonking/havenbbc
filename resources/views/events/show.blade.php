@@ -2,11 +2,19 @@
 
 @section('content')
 <section>
-    <div class="divider col-sm-12 col-xs-12 col-md-12"><div class="header-text"><span>{{$event->title}}</span></div></div>
+    
 
     <div class="container">
 
-           <div class="blok-read-sm content-block">
+        <div class="panel" >
+               <div class="panel-heading" style="margin:30;background:url('/storage/event_images/{{$event->cover_image}}');background-repeat:no-repeat;background-size:cover;background-attachment:fixed;">
+                    <div class="header-text"style="color:blanchedalmond; text-shadow: 2px 2px 8px #000000;"><span>{{$event->title}}</span>
+                        <h2 class="pull-right">{{$event->start}}</h2>
+                    </div>   
+           
+           <div class="clear-fix"></div>
+               </div>
+               <div class="panel-body">
                @if(!Auth::guest())
                 {!!Form::open(['action'=>['EventsController@destroy',$event->id],'method' => 'POST', 'class' => 'pull-right'])!!}
                 {{Form::hidden('_method','DELETE')}}
@@ -16,21 +24,27 @@
               @endif
               
                    
-     
+     <div class="container">
                <h4>{{$event->start}} to {{$event->end}}</h4>
-                <img src="/storage/event_images/{{$event->cover_image}}"/>
-                           <p>{{$event->description}}</p>
+                      
+                           <p class="lead">{{$event->description}}</p>
                            <br>
                            {!!$event->longdescription!!}
-                           <hr>
+                  
+                        <br>
+                    </div>
+                    </div>
+                           <div class="panel-footer">
                         <small>
                             Created on: {{$event->created_at}}
                     <br>
                                 Updated on: {{$event->updated_at}}
                             </small>
                         </div>
-
+                        </div>
         </div>
+
+    </div>
     
 </section>
 

@@ -1,19 +1,19 @@
-<section class="section-spaced">
+<section class="section-spaced" style="background-color:darkslategray;color:honeydew">
     
     <div class="container">  
-        <div class="divider col-sm-12 col-xs-12 col-md-12">
+        <div class="divider col-sm-12 col-xs-12 col-md-12 fromTop">
             <div class="header-text">
                 Our <span>Location</span></div>
         </div>
             <br>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 fromLeft">
                 <div class="text-center">
                     <img src="/storage/page_images/pulpit.jpg" alt="" class="img-thumbnail rounded mx-auto d-block" /> 
                 </div>
                 <br>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6  fromRight">
                     <div class="text-center">
                            <i class="fa fa-4x fa-map-marker"></i>
                            

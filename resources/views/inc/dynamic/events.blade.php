@@ -1,4 +1,4 @@
-<section class="section-spaced">
+<section class="section-spaced" style="background-color:linen;">
   
 
     <div class="container">
@@ -10,7 +10,7 @@
     @if(count($events)> 0)
         <div class="row">
             @foreach($events as $event)
-                <div class="item col-md-4 col-sm-6 col-xs-12 ">
+                <div class="item col-md-4 col-sm-6 col-xs-12 fromBottom">
                     <div class="blok-read-sm">
                         <a href="/events/{{$event->id}}" class="hover-image">
                             <img src="/storage/event_images/{{$event->cover_image}}" alt="image">

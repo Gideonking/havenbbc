@@ -7,8 +7,8 @@
                         <span>Service</span> Times
                     </div>
                 </div>
-    <h2>Sunday School</h2>
-    <table class="table">
+    <h2 class="fromTop">Sunday School</h2>
+    <table class="table fromLeft">
         <tr>
             <th>Level</th>
             <th>Time</th>
@@ -18,8 +18,8 @@
             <td>9:00 AM - 10:00 AM</td>
         </tr>
     </table>
-    <h2>Worship Services</h2>
-    <table class="table">
+    <h2 class="fromTop">Worship Services</h2>
+    <table class="table fromLeft">
         <tr>
             <th>Service</th>
             <th>Time</th>
@@ -33,8 +33,8 @@
             <td>2:00 PM - 4:00 PM</td>
         </tr>
     </table>
-    <h2>Prayer Meeting</h2>
-    <table class="table">
+    <h2 class="fromTop">Prayer Meeting</h2>
+    <table class="table fromLeft">
         <tr>
             <th>Service</th>
             <th>Time</th>
