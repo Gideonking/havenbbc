@@ -25,14 +25,14 @@
         @foreach($galleries as $gallery)
         <!-- Member -->
         <div class="col-xs-4 member animated" data-animation="fadeInUp" data-animation-delay="0">
-          <div class="member-inner">
+          <div class="member-inner ">
             <!-- Team Member Image -->
             <a class="team-image" href="/galleries/{{$gallery->id}}">
               <!-- Img -->
               <div   class="carousel" data-ride="carousel">
                    
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner carousel-gallery" role="listbox">
+                <div class="carousel-inner" role="listbox">
                  @if(count($gallery->images)>0)
                     @for($i=0;$i<count($gallery->images);$i++)
                     @if($i == 0)

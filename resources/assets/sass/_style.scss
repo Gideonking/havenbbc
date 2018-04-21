@@ -31,6 +31,12 @@ divider {
 	top: 29%;
 	font-size: 35px;
 }
+.header-text-light {
+	position: relative;
+	top: 29%;
+	font-size: 35px;
+	color:white;
+}
 .connect-text{
 	margin-top: 50px;
 }
@@ -68,7 +74,7 @@ p, li {
 	font-weight: 300;
 	font-size: 14px;
 	line-height: 28px;
-	color: #666;
+	//color: #666;
 	list-style: none;
 }
 

@@ -3,12 +3,12 @@
 @section('content')
 <section>
 
+                <section class="work-block"> 
+                  
     <div class="divider col-sm-12 col-xs-12 col-md-12">
-        <div class="header-text">
+        <div class="header-text-light text-center fromBottom">
             <span>Ministries</span></div>
         </div>
-       
-                <section class="work-block"> 
                   @if(!Auth::guest())  
                   <div class="form-group"><a href="/ministries/create" class="btn btn-success"> Create Ministry</a>
                   @endif
@@ -22,7 +22,7 @@
                                 @if(count($ministries)> 0)
                                 @foreach($ministries as $ministry)
                                 <a href="/ministries/{{$ministry->id}}">
-                              <div class="col-md-4 col-xs-12 col-sm-12">
+                              <div class="col-md-4 col-xs-12 col-sm-12 fromBottom">
                                 <div class="box-img">
                                     <img src="/storage/ministry_images/{{$ministry->cover_image}}"  width="100%" alt="" />
                                     <h3 class="titleimg-card">{{$ministry->title}}</h3>
