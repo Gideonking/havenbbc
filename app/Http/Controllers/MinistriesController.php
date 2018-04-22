@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ministry;
+use App\Leader;
+use App\Position;
 use Illuminate\Support\Facades\Storage;
 class MinistriesController extends Controller
 {
@@ -18,7 +20,6 @@ class MinistriesController extends Controller
      */
     public function index()
     {
-        //
         $ministries = Ministry::orderBy('id', 'asc')->get();
         $pageName = 'Ministries';
         return view('ministries.index')->with('pageName', $pageName)->with('ministries',$ministries);
