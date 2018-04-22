@@ -33,6 +33,7 @@ Route::resource('ministries','MinistriesController');
 Route::resource('galleries','GalleriesController');
 Route::resource('photos','PhotosController');
 Route::resource('feedbacks','FeedbacksController');
+Route::resource('blog','BlogPostsController');
 
 Auth::routes();
 

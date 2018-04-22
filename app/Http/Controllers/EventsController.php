@@ -39,7 +39,8 @@ class EventsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {$pageName = 'Create Event';
+    {
+        $pageName = 'Create Event';
         return view('events.create')->with('pageName', $pageName);
     }
 

@@ -30,9 +30,7 @@
                           News
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="/blog">Blog</a></li>
                         </ul>
                       </li>
                   <li class="nav-item"><a href="/contact">Contact</a></li>
