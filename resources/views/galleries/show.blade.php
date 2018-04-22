@@ -23,7 +23,7 @@
                                 <vue-picture-swipe :items="[
                                     @foreach($gallery->images as $image)
                                     {
-
+                                    class: 'col-md-4 col-sm-12 col-xs-12',
                                     src: '{{asset('storage/gallery_images/'.$image->path)}}',
                                     thumbnail: '{{asset('storage/gallery_images/'.$image->path)}}',
                                     w: {{$image->width}},

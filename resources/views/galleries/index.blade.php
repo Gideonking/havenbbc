@@ -10,48 +10,25 @@
         </div>
         
 
-        <section id="clients">
-       <!-- Team Inner -->
-          <div class="inner team">
-             
-      <!-- Header -->
-    
-
-      <!-- Members -->
-      <div class="team-members inner-details">
-          
-   
-        @if(count($galleries)> 0)
+<section id="clients">
+  <!-- Team Inner -->
+  <div class="inner team">
+    <!-- Members -->
+    <div class="team-members inner-details">
+        
+      
         @foreach($galleries as $gallery)
+        <!-- Looped -->
         <!-- Member -->
-        <div class="col-xs-4 member animated" data-animation="fadeInUp" data-animation-delay="0">
-          <div class="member-inner ">
+        
+        <div class="col-xs-12 col-md-4 col-sm-6 member animated" data-animation="fadeInUp" data-animation-delay="500">
+            <a href="/galleries/{{$gallery->id}}">
+          <div class="member-inner  fill-gallery">
             <!-- Team Member Image -->
-            <a class="team-image" href="/galleries/{{$gallery->id}}">
+            <a class="team-image">
               <!-- Img -->
-              <div   class="carousel" data-ride="carousel">
-                   
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                 @if(count($gallery->images)>0)
-                    @for($i=0;$i<count($gallery->images);$i++)
-                    @if($i == 0)
-                    <div class="item active">
-                      @else
-                      <div class="item">
-                      @endif
-                      <img src="/storage/gallery_images/{{$gallery->images[$i]->path}}" alt="" />
-             
-                    </div>
-                    @endfor
-                  @else
-                  <div class="item active">
-                      <img src="/storage/gallery_images/noimage.jpg" alt="" />
-                  </div>
-                  @endif
-                </div>
-            
-   
+              <img src="/storage/gallery_images/{{$gallery->images[0]->path}}" alt="" class="fill-gallery-img"/>
+            </a>
             <div class="member-details">
               <div class="member-details-inner">
                 <!-- Name -->
@@ -60,21 +37,22 @@
                 <p class="member-description">{{$gallery->description}}</p>
                 <!-- Socials -->
                 <div class="socials">
-                  <!-- Link -->
-                 <!-- <a href="#"><i class="fa fa-link"></i></a> -->
+                  <!-- Image -->
+                  <a href="/galleries/{{$gallery->id}}"><i class="fa fa-camera"></i></a>
                 </div><!-- End Socials -->
               </div> <!-- End Detail Inner -->
-            </div><!-- End Details -->         </a>
-          </div> <!-- End Member Inner -->
+            </div><!-- End Details -->
+          </div> <!-- End Member Inner -->        
+        </a> 
         </div><!-- End Member -->
-@endforeach
-@else
-<h2>No Gallery</h2>
-@endif
 
-      </div><!-- End Members -->
-    </div><!-- End Team Inner -->
-  </section><!-- End Team Section -->
+        @endforeach
+
+
+
+    </div><!-- End Members -->
+  </div><!-- End Team Inner -->
+</section><!-- End Team Section -->
 
 
     

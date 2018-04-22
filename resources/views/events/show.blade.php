@@ -7,7 +7,7 @@
     <div class="container">
 
         <div class="panel" >
-               <div class="panel-heading" style="margin:30;background:url('/storage/event_images/{{$event->cover_image}}');background-repeat:no-repeat;background-size:cover;background-attachment:fixed;">
+               <div class="panel-heading" style="padding-top:40px;padding-bottom:40px;background:url('/storage/event_images/{{$event->cover_image}}');background-repeat:no-repeat;background-size:cover;background-position:center">
                     <div class="header-text"style="color:blanchedalmond; text-shadow: 2px 2px 8px #000000;"><span>{{$event->title}}</span>
                         <h2 class="pull-right">{{$event->start}}</h2>
                     </div>   
