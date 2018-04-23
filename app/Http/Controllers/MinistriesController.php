@@ -20,6 +20,7 @@ class MinistriesController extends Controller
      */
     public function index()
     {
+     
         $ministries = Ministry::orderBy('id', 'asc')->get();
         $pageName = 'Ministries';
         return view('ministries.index')->with('pageName', $pageName)->with('ministries',$ministries);
@@ -81,10 +82,9 @@ $path = $request->file('cover_image')->storeAs('public/ministry_images',$fileNam
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $ministry = Ministry::find($id);
-
+    public function show($id){
+        $ministry = Ministry::with(['positions.leaders'])->find($id);
+      //  dd($ministry);
         $pageName = $ministry->title;
         return view('ministries.show')->with('ministry', $ministry)->with('pageName', $pageName);
     }

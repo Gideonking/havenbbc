@@ -25,6 +25,23 @@
                         
                         <p class="light-text">{{$ministry->description}}</p>
                         <br>
+                        @if(count($ministry->positions)>0)
+                        <h2>Leaders</h2>
+                        @foreach($ministry->positions as $position)
+                        <div "col-md-4">
+                            <p class="lead">
+                            @if(count($position->leaders)>0)
+                            {{$position->leaders[0]->title}} {{$position->leaders[0]->name}}
+                                
+                            @else
+                            Not Assigned
+                            @endif  
+                            <br><small>{{$position->title}}</small>
+                        </p>            
+                        </div>
+                        @endforeach
+                        @endif
+                        <br>
                                   
                         {!!$ministry->longdescription!!}
                          

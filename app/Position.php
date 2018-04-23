@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Position extends Model
 {
    public function leaders(){
-       return $this->belongsToMany(Leader::class,'leader_id');
+       return $this->belongsToMany('App\Leader','leaders_positions');
    }
    public function ministry(){
     return $this->belongsTo('App\Ministry');
