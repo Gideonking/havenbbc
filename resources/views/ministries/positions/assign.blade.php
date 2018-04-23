@@ -21,7 +21,9 @@
                                 {{Form::hidden('leader_id',$leader->id)}}
                                 {{Form::hidden('position_id',$position->id)}}
                                 {{Form::submit('Assign',['class'=> 'btn btn-xs btn-success'])}}
-                        </div>
+                                {!! Form::close() !!}
+                        
+                            </div>
                     </div><!-- end of a ministry panel -->
 @endforeach
  @else

@@ -11,7 +11,7 @@
 
             @if(!Auth::guest())
             <div class="col-sm-12 col-xs-12 col-md-12">
-        {!!Form::open(['action'=>['MinistriesController@destroy',$ministry->id],'method' => 'POST', 'class' => 'pull-right'])!!}
+        {!!Form::open(['action'=>['MinistriesController@destroy',$ministry->id],'method' => 'POST', 'class' => 'pull-right','id'=>'form_delete'])!!}
         {{Form::hidden('_method','DELETE')}}
         {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
          {!!Form::close()!!}

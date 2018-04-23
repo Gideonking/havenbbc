@@ -16,6 +16,7 @@
 </head>
 <body>
  <!--   <div id="app"> -->
+         @include('inc.modal')
         @include('inc.adminnavbar')
         @include('inc.navbar')
         @yield('content')

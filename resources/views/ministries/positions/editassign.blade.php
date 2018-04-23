@@ -26,7 +26,8 @@
                                 {{Form::hidden('position_id',$position->id)}}
                                 {{Form::hidden('_method','PUT')}}
                                 {{Form::submit('Assign',['class'=> 'btn btn-xs btn-success'])}}
-                        </div>
+                                {!! Form::close()!!}
+                            </div>
                     </div><!-- end of a ministry panel -->
 @endforeach
  @else

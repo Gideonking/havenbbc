@@ -27,7 +27,7 @@
                                     <div class="col-md-9 col-sm-7">
                                         <ul class="list-group">
                                             <li class="list-group-item active">
-                                                    {!!Form::open(['action'=>['LeadersController@destroy',$leader->id],'method' => 'POST','class'=>' pull-right'])!!}
+                                                    {!!Form::open(['action'=>['LeadersController@destroy',$leader->id],'method' => 'POST','class'=>' pull-right','id'=>'form_delete'])!!}
                                                     {{Form::hidden('_method','DELETE')}}
                                                     {{Form::submit('Delete',['class' => 'btn btn-danger  btn-sm'])}}
                                                      {!!Form::close()!!}
@@ -53,7 +53,7 @@
                                                             <li class="list-group-item">
                                                                     <a href="positions/{{$position->id}}/edit" class="btn btn-success"><b>{{$position->title}}</b></a>  at    <a href="/ministries/{{$position->ministry->id}}" class="btn btn-success"><b>{{$position->ministry->title}}</b></a>
                                                            
-                                                                    {!!Form::open(['action'=>'LeadersController@unassign','method' => 'POST','class'=>' pull-right'])!!}
+                                                                    {!!Form::open(['action'=>'LeadersController@unassign','method' => 'POST','class'=>' pull-right','id'=>'form_delete'])!!}
                                                                     {{Form::hidden('leader_id',$leader->id)}}
                                                                     {{Form::hidden('position_id',$position->id)}}
                                                                     {{Form::submit('Clear',['class' => 'btn btn-danger  btn-sm'])}}

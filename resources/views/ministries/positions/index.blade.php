@@ -33,9 +33,9 @@
                                         @foreach($ministry->positions as $position)
                                         <div class="panel panel-success">
                                             <div class="panel-heading">
-                                                {{$position->title}}
+                                                {{$position->title}} <span class="badge">T{{$position->tier}}</span></button>
                                                 
-                                                {!!Form::open(['action'=>['PositionsController@destroy',$position->id],'method' => 'POST','class'=>' pull-right'])!!}
+                                                {!!Form::open(['action'=>['PositionsController@destroy',$position->id],'method' => 'POST','class'=>' pull-right','id'=>'form_delete'])!!}
                                                 {{Form::hidden('_method','DELETE')}}
                                                 {{Form::submit('Delete Position',['class' => 'btn btn-danger  btn-xs'])}}
                                                  {!!Form::close()!!}
@@ -51,10 +51,11 @@
                                                 </div>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                         Assigned Member:<br>
-                                                        <p class="lead"><b> {{$position->leaders[0]->title}} {{$position->leaders[0]->name}}</b></p>
-                                                </div>
+                                                        <a href="/leaders/{{$position->leaders[0]->id}}/edit/"><p class="lead"><b> {{$position->leaders[0]->title}} {{$position->leaders[0]->name}}</b></p>
+                                                        </a>
+                                                        </div>
                                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                                {!!Form::open(['action'=>['PositionsController@clearLeader',$position->id],'method' => 'POST','class'=>' pull-right'])!!}
+                                                {!!Form::open(['action'=>['PositionsController@clearLeader',$position->id],'method' => 'POST','class'=>' pull-right','id'=>'form_delete'])!!}
                                                 {{Form::hidden('_method','DELETE')}}
                                                 {{Form::submit('Clear Assignment',['class' => 'btn btn-danger  btn-xs'])}}
                                                  {!!Form::close()!!}

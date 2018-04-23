@@ -11,6 +11,7 @@ require('./jquery.bxslider.min');
 require('./jquery.min');
 require('./main');
 require('./nav-hover.min');
+require('./modal');
 //require('./scrollreveal.min');
 //require('ScrollReveal');
 //require('./mdb.min');

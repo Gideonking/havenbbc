@@ -149,7 +149,8 @@ if ($request->hasFile('cover_image')) {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { 
+        //return redirect('/blog/'.$id);
         $post = BlogPost::find($id);
         if($post->cover_image != 'noimage.jpg'){
         //delete image

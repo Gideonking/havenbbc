@@ -16,7 +16,7 @@
                </div>
                <div class="panel-body">
                @if(!Auth::guest())
-                {!!Form::open(['action'=>['EventsController@destroy',$event->id],'method' => 'POST', 'class' => 'pull-right'])!!}
+                {!!Form::open(['action'=>['EventsController@destroy',$event->id],'method' => 'POST', 'class' => 'pull-right','id'=>'form_delete'])!!}
                 {{Form::hidden('_method','DELETE')}}
                 {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
                  {!!Form::close()!!}

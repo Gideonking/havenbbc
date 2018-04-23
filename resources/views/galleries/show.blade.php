@@ -8,7 +8,7 @@
 
            <div class="blok-read-sm content-block">
                 @if(!Auth::guest())
-                {!!Form::open(['action'=>['GalleriesController@destroy',$gallery->id],'method' => 'POST', 'class' => 'pull-right'])!!}
+                {!!Form::open(['action'=>['GalleriesController@destroy',$gallery->id],'method' => 'POST', 'class' => 'pull-right','id'=>'form_delete'])!!}
                 {{Form::hidden('_method','DELETE')}}
                 {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
                  {!!Form::close()!!}
