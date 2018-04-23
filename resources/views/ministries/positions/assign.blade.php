@@ -8,7 +8,7 @@
                 <div class="panel-heading">
                    Assign Leaders as {{$position->title}}
                    <span class="label label-success">Leaders <span class="badge">{{count($leaders)}}</span></span>
-                   <a href="#" class="btn btn-xs btn-primary pull-right">Create New Leader</a>
+                   <a href="/leaders/create" class="btn btn-xs btn-primary pull-right">Create New Leader</a>
                 </div>
                 <div class="panel-body">
                         @include('inc.messages')

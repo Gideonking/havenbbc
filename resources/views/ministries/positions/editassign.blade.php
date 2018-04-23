@@ -8,7 +8,7 @@
                 <div class="panel-heading">
                    Edit Leader Assignment as {{$position->title}}
                    <span class="label label-success">Leaders <span class="badge">{{count($leaders)}}</span></span>
-                   <a href="#" class="btn btn-xs btn-primary pull-right">Create New Leader</a>
+                   <a href="/leaders/create" class="btn btn-xs btn-primary pull-right">Create New Leader</a>
             
                    <br>
                    

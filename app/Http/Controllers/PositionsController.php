@@ -180,7 +180,7 @@ class PositionsController extends Controller
     }
     
 
-    public function clearLeader($id){
+    public function clearLeader(Request $request){
         $position = Position::with('leaders')->find($id);
         if(count($position->leaders)>0){
             $leaderid = array();

@@ -20,7 +20,17 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                   <li><a href="/feedbacks/" class="btn btn-default">Messages<span class="badge">30</span></a></li>
+                   <li><a href="/feedbacks/">Messages<span class="badge">30</span></a></li>
+                   <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Ministry <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">  
+                            <li><a href="/ministries/">Ministry</a></li>
+                            <li><a href="/positions/">Positions</a></li>
+                            <li><a href="/leaders">Leaders</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

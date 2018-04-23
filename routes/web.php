@@ -35,6 +35,7 @@ Route::resource('photos','PhotosController');
 Route::resource('feedbacks','FeedbacksController');
 Route::resource('blog','BlogPostsController');
 Route::resource('positions','PositionsController');
+Route::resource('leaders','LeadersController');
 
 Auth::routes();
 
@@ -42,10 +43,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //additional routes for positions
 Route::get('/positions/create/{ministry_id}', 'PositionsController@create')->name('positions');
+
 Route::get('/positions/create/', 'PositionsController@index')->name('positions');
 
 Route::get('/positions/{id}/assign', 'PositionsController@addAssignment')->name('positions');
-Route::post('/positions/', 'PositionsController@assignLeader')->name('positions');
+
+Route::post('/positions/assign', 'PositionsController@assignLeader')->name('positions');
 
 Route::delete('/positions/assign/{id}', 'PositionsController@clearLeader')->name('positions');
 
@@ -53,3 +56,7 @@ Route::get('/positions/assign/{id}/edit', 'PositionsController@editAssignment')-
 
 Route::put('/positions/assign/{id}', 'PositionsController@updateLeader')->name('positions');
 // routes for positions end here
+//additional routes for leaders
+Route::post('leaders/unassign','LeadersController@unassign');
+
+//additional routes for leaders ends here

@@ -15,7 +15,10 @@
 @foreach($ministries as $ministry)
                     <div class="panel panel-success">
                             <div class="panel-heading">
-                                    {{$ministry->title}} 
+                                    <a href="/ministries/{{$ministry->id}}"
+                                        class="btn btn-success btn-md">
+                                       <b> {{$ministry->title}}</b>
+                                    </a> 
                                     <span class="label label-info"> Positions
                                     <span class="label label-danger">{{count($ministry->positions)}}</span>
                                     </span>
@@ -43,7 +46,14 @@
                                             </div><!-- end of a position heading -->
                                             <div class="panel-body">
                                                 @if(count($position->leaders)>0)
-                                                Assigned Member: {{$position->leaders[0]->title}} {{$position->leaders[0]->name}}
+                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                    <img src="/storage/profile_images/{{$position->leaders[0]->cover_image}}" alt="" class="img-thumbnail img-responsive">        
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        Assigned Member:<br>
+                                                        <p class="lead"><b> {{$position->leaders[0]->title}} {{$position->leaders[0]->name}}</b></p>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 col-xs-12">
                                                 {!!Form::open(['action'=>['PositionsController@clearLeader',$position->id],'method' => 'POST','class'=>' pull-right'])!!}
                                                 {{Form::hidden('_method','DELETE')}}
                                                 {{Form::submit('Clear Assignment',['class' => 'btn btn-danger  btn-xs'])}}
@@ -52,6 +62,8 @@
                                                 <a href="/positions/assign/{{$position->id}}/edit" class="btn btn-success btn-xs pull-right">
                                                         Edit Assignment
                                                 </a>
+                                                </div>
+                                            
                                                 @else
                                                 No Assigned Member!
                                                 <a href="/positions/{{$position->id}}/assign/" class="btn btn-primary btn-xs pull-right">
