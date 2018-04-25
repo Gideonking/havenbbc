@@ -1,5 +1,5 @@
 @if(!Auth::guest())
-<nav class="navbar navbar-default  ">
+<nav class="navbar navbar-default navbar-fixed-top ">
         <div class="container">
             <div class="navbar-header">
 
@@ -13,7 +13,8 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    HBBC
+                    <img src="/storage/meta/favicon-32x32.png" alt="" style="display:inline">
+                    HBBC <span class="badge badge-primary"><small>admin</small></span>
                 </a>
             </div>
 

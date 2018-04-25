@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(http://fonts.googleapis.com/css?family=Varela+Round);@import url(http://fonts.googleapis.com/css?family=Lato);@import url(http://fonts.googleapis.com/css?family=Allerta+Stencil);@import url(http://fonts.googleapis.com/css?family=Raleway:300);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(http://fonts.googleapis.com/css?family=Varela+Round);@import url(http://fonts.googleapis.com/css?family=Lato);@import url(http://fonts.googleapis.com/css?family=Allerta+Stencil);@import url(http://fonts.googleapis.com/css?family=Raleway:300);@import url(https://fonts.googleapis.com/css?family=Cinzel|IM+Fell+English:400i);@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -10810,14 +10810,16 @@ divider {
 .header-text {
   position: relative;
   top: 29%;
-  font-size: 35px;
+  font-size: 55px;
+  font-family: 'Cinzel', serif;
 }
 
 .header-text-light {
   position: relative;
   top: 29%;
-  font-size: 35px;
+  font-size: 55px;
   color: white;
+  font-family: 'Cinzel', serif;
 }
 
 .connect-text {
@@ -10825,10 +10827,15 @@ divider {
 }
 
 .header-text span {
-  font-family: 'Allerta Stencil', sans-serif;
+  font-family: 'Cinzel', serif;
   padding: 8px;
   font-weight: bold;
   border-bottom: 2px solid;
+}
+
+h1,
+h2 {
+  font-family: 'Cinzel', serif;
 }
 
 body {
@@ -10865,6 +10872,11 @@ li {
 
 .section-web {
   margin-bottom: 49px;
+}
+
+blockquote {
+  font-family: 'IM Fell English', serif;
+  font-size: 25px;
 }
 
 /******* End General ******/
