@@ -36,6 +36,7 @@ Route::resource('feedbacks','FeedbacksController');
 Route::resource('blog','BlogPostsController');
 Route::resource('positions','PositionsController');
 Route::resource('leaders','LeadersController');
+Route::resource('slides','SlidesController');
 
 Auth::routes();
 

@@ -32,6 +32,9 @@
                             <li><a href="/leaders">Leaders</a></li>
                         </ul>
                     </li>
+                    <li>
+                            <a href="/slides/">Slides</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

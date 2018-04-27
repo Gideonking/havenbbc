@@ -11583,10 +11583,6 @@ section.blog {
   width: 100%;
 }
 
-.carousel-gallery {
-  height: 300px;
-}
-
 .carousel-fade .item {
   display: block;
   position: absolute;
@@ -11610,7 +11606,7 @@ section.blog {
 
 @media (max-width: 600px) {
   .carousel-caption {
-    font-family: 'Poiret One', cursive;
+    font-family: 'IM Fell English', serif;
     font-size: 24px !important;
     font-weight: bold;
     background: none;
@@ -11618,14 +11614,14 @@ section.blog {
 }
 
 .carousel-caption {
-  font-family: 'Poiret One', cursive;
-  text-transform: uppercase;
+  font-family: 'IM Fell English', serif;
   font-size: 50px;
   font-weight: bold;
   background: rgba(152, 168, 173, 0.43);
 }
 
 .carousel-gallery {
+  height: 300px;
   width: 400px !important;
 }
 

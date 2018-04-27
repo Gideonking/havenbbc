@@ -13,7 +13,7 @@
                                 <p><span class="fa fa-envelope-o"></span>Email: <a href="mailto:havenbbc1996@gmail.com">havenbbc1996@gmail.com</a></p>
                             </li>
                             <li>
-                                <p><span class="fa fa-phone"></span>Phone: (+63) 915 325 4919</p>
+                                <p><span class="fa fa-phone"></span>Phone: (+63) 915 325 </p>
                             </li>
                             <li>
                                 <p><span class="fa fa-facebook"></span><a href="https://web.facebook.com/havenbbc">&nbsp;&nbsp;&nbsp;&nbsp;Facebook Page</a></p>

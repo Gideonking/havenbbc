@@ -1,5 +1,6 @@
 @extends('layouts.app') @section('content')
 <!-- Carousel -->
+@include('inc.dynamic.carousel')
 <!-- Welcome Message -->
 @include('inc.static.welcomemsg')
 <!-- Service Times -->
