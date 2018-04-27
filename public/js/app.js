@@ -1565,6 +1565,7 @@ __webpack_require__(40);
 __webpack_require__(42);
 __webpack_require__(43);
 __webpack_require__(44);
+__webpack_require__(89);
 //require('./scrollreveal.min');
 //require('ScrollReveal');
 //require('./mdb.min');
@@ -60907,6 +60908,36 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */
+/***/ (function(module, exports) {
+
+
+
+window.sr = ScrollReveal({ viewFactor: 0.5 });
+sr.reveal('.fromBottom', { origin: 'bottom', duration: 1000, distance: '500px' }, 50);
+sr.reveal('.fromLeft', { origin: 'left', duration: 1000, distance: '500px' }, 50);
+sr.reveal('.fromRight', { origin: 'right', duration: 1000, distance: '500px' }, 50);
+sr.reveal('.fromTop', { origin: 'top', duration: 1000, distance: '100px' }, 50);
 
 /***/ })
 /******/ ]);

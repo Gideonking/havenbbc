@@ -24,11 +24,11 @@
                         <br>  
                         <div class="form-group">
                         {{Form::label('iscalltoaction','Include Call to Action?')}}  
-                        {{Form::checkbox('is_linked[]',1,0)}}<br>
+                        {{Form::checkbox('is_linked[]',1,0,['id'=>'chkBox','onClick'=>"toggleDisable('chkBox','disable_me')"])}}<br>
                         {{Form::label('cto','Call to Action Button Label')}}  
-                        {{Form::text('label','',['class' => 'form-control', 'placeholder' => 'Button Label'])}}
+                        {{Form::text('label','',['class' => 'form-control disable_me', 'placeholder' => 'Button Label', 'disabled'=>'true'])}}
                         {{Form::label('cto','Call to Action Link')}}  
-                        {{Form::text('link','',['class' => 'form-control', 'placeholder' => 'Link'])}}
+                        {{Form::text('link','',['class' => 'form-control disable_me', 'placeholder' => 'Link', 'disabled'=>'true'])}}
 
                     </div>
                     {{Form::submit('Submit',['class'=> 'btn btn-primary'])}}

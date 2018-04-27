@@ -12,6 +12,7 @@ require('./jquery.min');
 require('./main');
 require('./nav-hover.min');
 require('./modal');
+require('./custom');
 //require('./scrollreveal.min');
 //require('ScrollReveal');
 //require('./mdb.min');
