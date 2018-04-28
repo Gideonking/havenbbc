@@ -37,6 +37,7 @@
 <body>
  <!--   <div id="app"> -->
          @include('inc.modal')
+         @include('inc.cropper')
         @include('inc.adminnavbar')
         @include('inc.navbar')
         @yield('content')
@@ -68,7 +69,6 @@
                 updateToggle = checkbox.checked ? toggles[i].disabled=false : toggles[i].disabled=true;
               }
         </script>
-       
         
 </body>
 </html>

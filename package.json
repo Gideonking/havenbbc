@@ -19,6 +19,7 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
+    "croppie": "^2.6.2",
     "js-beautify": "^1.7.5",
     "npm": "^5.8.0",
     "vue-picture-swipe": "^0.1.7"
