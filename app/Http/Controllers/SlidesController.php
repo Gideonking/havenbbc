@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Slide;
+use App\Traits\ImageUpload;
 use Illuminate\Support\Facades\Storage;
 
 class SlidesController extends Controller
 {
-    
-       /**
+    use ImageUpload;
+           /**
      * Create a new controller instance.
      *
      * @return void
@@ -25,7 +26,7 @@ class SlidesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $slides = Slide::all();
 
         $pageName = 'Slides';
@@ -69,21 +70,10 @@ class SlidesController extends Controller
 //Handle file upload
         if ($request->input('cover_image') != "") {
             $data = $request->input('cover_image');
-
-            list($type, $data) = explode(';',$data);
-            list(, $data) = explode(',',$data);
-
-            $data = base64_decode($data);
             $path = 'storage/slide_images/';
-            //filename to store
-            $fileNameToStore = 'slide_'.time().'.png';
-            if(!file_exists($path))
-                mkdir($path,0777,true);
-
-             //   dd($data);
-            //upload image
-            $full_path = $path . $fileNameToStore;
-           file_put_contents($full_path,$data);
+            $fileNameToStore = $this->uploadImageBase64($data,$path,'slide','png');
+            if($fileNameToStore == false)
+            return redirect('/slides/')->with('error', 'Upload Failed')->with('pageName', 'Slides');
         } else {
             $randVal = mt_rand(1,5);
             $fileNameToStore = "noimage".$randVal.".jpg";
