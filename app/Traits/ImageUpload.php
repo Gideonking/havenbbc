@@ -22,5 +22,19 @@ trait ImageUpload{
            return false;
 
          }
+
+public function uploadImageFile($file,$storagePath){
+
+//get file name with extension
+$filenamewithExt = $file->getClientOriginalName();
+//get file name
+$fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
+//get ext
+$extension = $file->getClientOriginalExtension();
+//filename to store
+$fileNameToStore = $fileName.'_'.time().'.'.$extension;
+//upload image
+$path = $file->storeAs($storagePath,$fileNameToStore);
+}
     
 }
