@@ -45813,7 +45813,14 @@ $(function () {
         }
 
         $('#crop-image').modal({ backdrop: 'static', keyboard: false }).on('click', '#continue-btn', function () {
-            basic.croppie('result', 'canvas').then(function (canvas) {
+            basic.croppie('result', {
+                type: 'canvas',
+                size: {
+                    width: 1280,
+                    height: 720
+                }
+
+            }).then(function (canvas) {
                 document.getElementById('cropped').value = canvas;
                 document.getElementById('thumbnail').src = canvas;
                 $(function () {

@@ -55,8 +55,7 @@ class SlidesController extends Controller
     {
 
         $reqVal = [
-            'title' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
+            'title' => 'required'
         ];
         $isLink = 0;
 
@@ -68,17 +67,23 @@ class SlidesController extends Controller
        // dd($reqVal);
         $this->validate($request, $reqVal);
 //Handle file upload
-        if ($request->hasFile('cover_image')) {
-            //get file name with extension
-            $filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-            //get file name
-            $fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-            //get ext
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
+        if ($request->input('cover_image') != "") {
+            $data = $request->input('cover_image');
+
+            list($type, $data) = explode(';',$data);
+            list(, $data) = explode(',',$data);
+
+            $data = base64_decode($data);
+            $path = 'storage/slide_images/';
             //filename to store
-            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+            $fileNameToStore = 'slide_'.time().'.png';
+            if(!file_exists($path))
+                mkdir($path,0777,true);
+
+             //   dd($data);
             //upload image
-            $path = $request->file('cover_image')->storeAs('public/slide_images',$fileNameToStore);
+            $full_path = $path . $fileNameToStore;
+           file_put_contents($full_path,$data);
         } else {
             $randVal = mt_rand(1,5);
             $fileNameToStore = "noimage".$randVal.".jpg";

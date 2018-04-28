@@ -28,7 +28,7 @@
                             {{$slides[$i]->title}}
                             <p>{{$slides[$i]->description}}</p>
                             @if($slides[$i]->is_linked == '1')
-                            <a href="{{$slides[$i]->link}}" class="btn btn-primary btn-lg">{{$slides[$i]->label}}</a>
+                            <a href="{{$slides[$i]->link}}" class="btn btn-primary btn-sm">{{$slides[$i]->label}}</a>
                             @endif
                         </div>
                 </div>

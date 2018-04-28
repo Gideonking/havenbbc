@@ -6,9 +6,11 @@
                     <h4 class="modal-title">Crop Image</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="continer">
                     <div id="crop" style="overflow:hidden">
                         <img src="" alt="">
                     </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-primary" id="continue-btn" >Continue</button>
