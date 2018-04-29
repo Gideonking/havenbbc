@@ -23,18 +23,51 @@ trait ImageUpload{
 
          }
 
-public function uploadImageFile($file,$storagePath){
+        public function uploadImageFile($file,$storagePath){
 
-//get file name with extension
-$filenamewithExt = $file->getClientOriginalName();
-//get file name
-$fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-//get ext
-$extension = $file->getClientOriginalExtension();
-//filename to store
-$fileNameToStore = $fileName.'_'.time().'.'.$extension;
-//upload image
-$path = $file->storeAs($storagePath,$fileNameToStore);
-}
+        //get file name with extension
+        $filenamewithExt = $file->getClientOriginalName();
+        //get file name
+        $fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
+        //get ext
+        $extension = $file->getClientOriginalExtension();
+        //filename to store
+        $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+        //upload image
+        $path = $file->storeAs($storagePath,$fileNameToStore);
+
+        return $fileNameToStore;
+        }
     
+
+        public function cropSet($index){
+            
+        $cropSettings = [ 
+            'slides' => [
+                        'cropper'=>[
+                                'enableExif'=> 'true',
+                                'viewport'=>[
+                                    'width'=>320,
+                                    'height'=>180,
+                                    'type'=>'square'
+                                ],
+                                'boundary'=>[
+                                'width'=>320,
+                                'height'=>320
+                                ]
+                            ],    
+                        'result'=>[
+                                'type'=> 'canvas',
+                                'size'=>[
+                                    'width'=>1280,
+                                    'height'=>720
+                                ]
+                        ]
+                ]
+                                ];
+        return  $cropSettings[$index];
+        }
+
+
+
 }

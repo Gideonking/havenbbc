@@ -37,12 +37,14 @@ class SlidesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
+      
         $pageName = 'Create a Slide';
-        return view('admin.slides.create')->with('pageName', $pageName);
+        return view('admin.slides.create')->with('pageName', $pageName)->with('cropSettings',$this->cropSet('slides'));
   
     }
 
@@ -111,7 +113,7 @@ class SlidesController extends Controller
     public function edit($id)
     {
         $slide = Slide::find($id); 
-        return view('admin.slides.edit')->with('slide', $slide)->with('pageName', 'Edit Slide');
+        return view('admin.slides.edit')->with('slide', $slide)->with('pageName', 'Edit Slide')->with('cropSettings',$this->cropSet('slides'));
   
     }
 
@@ -126,7 +128,6 @@ class SlidesController extends Controller
     {
         $reqVal = [
             'title' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
         ];
         $isLink = 0;
         if($request->input('is_linked')[0]=='1'){ 
@@ -137,23 +138,18 @@ class SlidesController extends Controller
        // dd($reqVal);
         $this->validate($request, $reqVal);
 //Handle file upload
-        if ($request->hasFile('cover_image')) {
-            //get file name with extension
-            $filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-            //get file name
-            $fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-            //get ext
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-            //filename to store
-            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
-            //upload image
-            $path = $request->file('cover_image')->storeAs('public/slide_images',$fileNameToStore);
+        if ($request->input('cover_image') != "") {
+            $data = $request->input('cover_image');
+            $path = 'storage/slide_images/';
+            $fileNameToStore = $this->uploadImageBase64($data,$path,'slide','png');
+            if($fileNameToStore == false)
+            return redirect('/slides/')->with('error', 'Upload Failed')->with('pageName', 'Slides');
         } 
 
         $slide = Slide::find($id);
         $slide->title = $request->input('title');
         $slide->description = $request->input('description');
-        if ($request->hasFile('cover_image')) {
+        if ($request->input('cover_image') != "") {
             $slide->cover_image = $fileNameToStore;
         }
         $slide->is_linked = $isLink;

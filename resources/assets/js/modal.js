@@ -15,18 +15,8 @@ $('#form_delete').on('click', function(e){
 //         });
 // });
 
-var basic = $('#crop').croppie({
-    enableExif: true,
-    viewport: {
-        width: 320,
-        height: 180
-    },
-    boundary: {
-        width: 320,
-        height: 320
-    }
-});
-
+var basic = $('#crop').croppie(window.croppieSettings);
+//improve code add refinement
 $(function() {
     $("input:file").change(function (e){
         var comp = $(this);
@@ -46,8 +36,7 @@ $(function() {
          return function(e) {
            // Render thumbnail.
            basic.croppie('bind', {
-            url: e.target.result,
-            points: [77,469,280,739]
+            url: e.target.result
         });
            
                    
@@ -61,14 +50,9 @@ $(function() {
          
       $('#crop-image').modal({ backdrop: 'static', keyboard: false })
          .on('click', '#continue-btn', function(){
-            basic.croppie('result',{
-                type: 'canvas',
-                size: {
-                    width:1280,
-                    height:720
-                }
-
-            }).then(function(canvas) {
+            basic.croppie('result',
+            window.resultSettings
+            ).then(function(canvas) {
                document.getElementById('cropped').value = canvas;
                document.getElementById('thumbnail').src = canvas;
                $(function () {

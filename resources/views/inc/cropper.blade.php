@@ -1,3 +1,4 @@
+@if(isset($cropSettings))
 <div class="modal" id="crop-image">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -20,3 +21,28 @@
         </div>
     </div>
     
+  
+    <script>
+var croppieSettings ={
+    enableExif: {{$cropSettings['cropper']['enableExif']}},
+    viewport: {
+        width: {{$cropSettings['cropper']['viewport']['width']}},
+        height: {{$cropSettings['cropper']['viewport']['height']}},
+        type: '{{$cropSettings['cropper']['viewport']['type']}}'
+    },
+    boundary: {
+        width: {{$cropSettings['cropper']['boundary']['width']}},
+        height: {{$cropSettings['cropper']['boundary']['height']}}
+    }
+};
+
+var resultSettings ={    
+                        type: '{{$cropSettings['result']['type']}}',
+                        size: {
+                            width:{{$cropSettings['result']['size']['width']}},
+                            height:{{$cropSettings['result']['size']['height']}}
+                        }
+                    };
+
+    </script>
+@endif
