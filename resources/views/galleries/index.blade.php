@@ -2,7 +2,7 @@
 
 @section('content')
  <div class="divider col-sm-12 col-xs-12 col-md-12">
-          <div class="header-text"><span>Gallery</span> Images</div>
+          <div class="header-text"><span>Gallery</span></div>
           <br>
           @if(!Auth::guest())
           <a href="/galleries/create" class="btn btn-success"> Create Gallery</a>
@@ -11,12 +11,13 @@
         
 
 <section id="clients">
+  <div class="container">
   <!-- Team Inner -->
   <div class="inner team">
     <!-- Members -->
     <div class="team-members inner-details">
-        
-      
+    <h1>Photo Albums</h1>
+      @if(count($galleries)>0)
         @foreach($galleries as $gallery)
         <!-- Looped -->
         <!-- Member -->
@@ -47,11 +48,31 @@
         </div><!-- End Member -->
 
         @endforeach
-
-
-
+@else
+<h1>No Photo Albums</h1>
+@endif
+     
     </div><!-- End Members -->
   </div><!-- End Team Inner -->
+  <br>
+  <br>
+  <div class="col-md-12 col-sm-12 col-xs-12" id="video-container">
+  <h1>Videos</h1>
+  @if(count($videos)>0)
+  <p><strong>YouTube Videos</strong></p>
+  @foreach($videos as $video)
+  <div class="col-md-4 col-sm-6 col-xs-12" id="videoframe">
+    <div class="container col-12">
+        <iframe src="http://www.youtube.com/embed/{{$video->id->videoId}}" frameborder="0" allowfullscreen></iframe>
+
+    </div>
+       </div>
+  @endforeach
+  @else
+  <h1>No Videos</h1>
+  @endif
+</div>
+</div>
 </section><!-- End Team Section -->
 
 

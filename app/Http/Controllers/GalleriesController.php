@@ -6,6 +6,7 @@ use App\Gallery;
 use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use GuzzleHttp\Client;
 
 class GalleriesController extends Controller
 {
@@ -23,14 +24,35 @@ class GalleriesController extends Controller
     {
         $galleries = Gallery::orderBy('updated_at', 'asc')->get();
         //cover image on each gallery
-
+        
         foreach($galleries as $gallery){
             //improve this with limiting and randomizing the images to be sent
             $gallery->images = $gallery->photos;
         }
+
+        $apiKey = 'AIzaSyD_TLq31Fx_2Umbau6JJqab7tExkUKCmL0';
+        $channelId = 'UC90VgQJGHvAN6gM0vS-q9RA';
+        $client = new Client();
+    
+            $req =  ['query' => [
+                    'key' =>   $apiKey,
+                    'channelId' => $channelId,
+                    'part' => 'snippet,id',
+                    'order'=>'date'
+                    //'maxResult' => 20
+                    ]
+        ];
+            $res = $client->request('GET','https://www.googleapis.com/youtube/v3/search?key=AIzaSyD_TLq31Fx_2Umbau6JJqab7tExkUKCmL0&channelId=UC90VgQJGHvAN6gM0vS-q9RA&part=snippet,id&order=date');
+          //  dd($res);
+    
+            $result = json_decode($res->getBody());
+            //dd($result);
+
+            $videos = $result->items;
+           // dd($videos[0]->id->videoId);
         $pageName = 'Gallery';
    //     dd($galleries);
-        return view('galleries.index')->with('pageName', $pageName)->with('galleries', $galleries);
+        return view('galleries.index')->with('pageName', $pageName)->with('galleries', $galleries)->with('videos', $videos);
     }
 
     /**
