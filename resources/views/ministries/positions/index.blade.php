@@ -47,7 +47,7 @@
                                             <div class="panel-body">
                                                 @if(count($position->leaders)>0)
                                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                                    <img src="/storage/profile_images/{{$position->leaders[0]->cover_image}}" alt="" class="img-thumbnail img-responsive">        
+                                                    <img src="/storage/profile_images/{{$position->leaders[0]->cover_image}}" alt="" class="img-thumbnail img-responsive  img-circle">        
                                                 </div>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                         Assigned Member:<br>

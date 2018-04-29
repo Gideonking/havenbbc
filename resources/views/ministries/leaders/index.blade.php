@@ -21,7 +21,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-5 text-center">
-                                        <img src="/storage/profile_images/{{$leader->cover_image}}" alt="" class="img-thumbnail img-responsive">
+                                        <img src="/storage/profile_images/{{$leader->cover_image}}" alt="" class="img-thumbnail img-responsive img-circle">
                                     <br>
                                     </div><!-- end of left --> 
                                     <div class="col-md-9 col-sm-7">

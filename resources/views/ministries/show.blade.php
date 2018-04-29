@@ -41,7 +41,7 @@
                             
                             <p class="lead">
                             @if(count($position->leaders)>0)
-                            <img src="/storage/profile_images/{{$position->leaders[0]->cover_image}}" alt="" class="img-thumbnail img-responsie"><br>
+                            <img src="/storage/profile_images/{{$position->leaders[0]->cover_image}}" alt="" class="img-thumbnail img-responsive img-circle"><br>
                             {{$position->leaders[0]->title}} {{$position->leaders[0]->name}}
                                 
                             @else

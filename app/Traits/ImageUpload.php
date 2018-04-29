@@ -63,8 +63,72 @@ trait ImageUpload{
                                     'height'=>720
                                 ]
                         ]
+            ],
+            'leaders' => [
+                'cropper'=>[
+                        'enableExif'=> 'true',
+                        'viewport'=>[
+                            'width'=>320,
+                            'height'=>320,
+                            'type'=>'circle'
+                        ],
+                        'boundary'=>[
+                        'width'=>320,
+                        'height'=>320
+                        ]
+                    ],    
+                'result'=>[
+                        'type'=> 'canvas',
+                        'size'=>[
+                            'width'=>500,
+                            'height'=>500
+                        ]
                 ]
-                                ];
+            ],
+            'events' => [
+                'cropper'=>[
+                        'enableExif'=> 'true',
+                        'viewport'=>[
+                            'width'=>320,
+                            'height'=>180,
+                            'type'=>'square'
+                        ],
+                        'boundary'=>[
+                        'width'=>320,
+                        'height'=>320
+                        ]
+                    ],    
+                'result'=>[
+                        'type'=> 'canvas',
+                        'size'=>[
+                            'width'=>640,
+                            'height'=>360
+                        ]
+                ]
+            ],
+            'ministries' => [
+                'cropper'=>[
+                    'enableExif'=> 'true',
+                    'viewport'=>[
+                        'width'=>320,
+                        'height'=>180,
+                        'type'=>'square'
+                    ],
+                    'boundary'=>[
+                    'width'=>320,
+                    'height'=>320
+                    ]
+                ],    
+                'result'=>[
+                    'type'=> 'canvas',
+                    'size'=>[
+                        'width'=>640,
+                        'height'=>360
+                    ]
+                ]
+            ]
+                           
+        ];
         return  $cropSettings[$index];
         }
 

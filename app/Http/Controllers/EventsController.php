@@ -6,9 +6,11 @@ use App\Event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Traits\ImageUpload;
 
 class EventsController extends Controller
 {
+    use ImageUpload;
     /**
      * Create a new controller instance.
      *
@@ -41,7 +43,7 @@ class EventsController extends Controller
     public function create()
     {
         $pageName = 'Create Event';
-        return view('events.create')->with('pageName', $pageName);
+        return view('events.create')->with('pageName', $pageName)->with('cropSettings',$this->cropSet('events'));
     }
 
     /**
@@ -57,20 +59,14 @@ class EventsController extends Controller
             'description' => 'required',
             'start' => 'required|before:end',
             'end' => 'required|after:start',
-            'cover_image' => 'image|nullable|max:1999',
-        ]);
+           ]);
 //Handle file upload
-        if ($request->hasFile('cover_image')) {
-//get file name with extension
-$filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-//get file name
-$fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-//get ext
-$extension = $request->file('cover_image')->getClientOriginalExtension();
-//filename to store
-$fileNameToStore = $fileName.'_'.time().'.'.$extension;
-//upload image
-$path = $request->file('cover_image')->storeAs('public/event_images',$fileNameToStore);
+if ($request->input('cover_image') != "") {
+    $data = $request->input('cover_image');
+    $path = 'storage/event_images/';
+    $fileNameToStore = $this->uploadImageBase64($data,$path,'event','png');
+    if($fileNameToStore == false)
+    return redirect('/events/')->with('error', 'Upload Failed')->with('pageName', 'Events');
         } else {
             $fileNameToStore = "noimage.jpg";
         }
@@ -120,7 +116,7 @@ $path = $request->file('cover_image')->storeAs('public/event_images',$fileNameTo
 
         $event->start = $newStart;
         $event->end = $newEnd;
-        return view('events.edit')->with('event', $event)->with('pageName', 'Edit Event');
+        return view('events.edit')->with('event', $event)->with('pageName', 'Edit Event')->with('cropSettings',$this->cropSet('events'));
     }
 
     /**
@@ -138,29 +134,23 @@ $path = $request->file('cover_image')->storeAs('public/event_images',$fileNameTo
             'description' => 'required',
             'start' => 'required|before:end',
             'end' => 'required|after:start',
-            'cover_image' => 'image|nullable|max:1999',
-        ]);
+                 ]);
 
 
 //Handle file upload
-if ($request->hasFile('cover_image')) {
-    //get file name with extension
-    $filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-    //get file name
-    $fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-    //get ext
-    $extension = $request->file('cover_image')->getClientOriginalExtension();
-    //filename to store
-    $fileNameToStore = $fileName.'_'.time().'.'.$extension;
-    //upload image
-    $path = $request->file('cover_image')->storeAs('public/event_images',$fileNameToStore);
+if ($request->input('cover_image') != "") {
+    $data = $request->input('cover_image');
+    $path = 'storage/event_images/';
+    $fileNameToStore = $this->uploadImageBase64($data,$path,'slide','png');
+    if($fileNameToStore == false)
+    return redirect('/events/')->with('error', 'Upload Failed')->with('pageName', 'Event');
             } 
 
         $event = Event::find($id);
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         $event->longdescription = $request->input('longdescription');
-        if ($request->hasFile('cover_image')) {
+        if ($request->input('cover_image') != "") {
             $event->cover_image = $fileNameToStore;
         }
         $event->start = $request->input('start');

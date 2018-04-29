@@ -19,9 +19,7 @@
     {{Form::textarea('longdescription',$ministry->longdescription,['id' => 'article-ckeditor','class' => 'form-control', 'placeholder' => 'Description'])}}
 
     <br>
-    <div class="form-group">
-        {{Form::file('cover_image')}}
-    </div>
+    @include('inc.uploadimage')
     <br>   
     {{Form::hidden('_method','PUT')}}
   {{Form::submit('Submit',['class'=> 'btn btn-primary'])}}

@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Storage;
 use App\Leader;
 use App\Position;
 use App\Ministry;
+use App\Traits\ImageUpload;
 class LeadersController extends Controller
 {
+    use ImageUpload;
     /**
     * Create a new controller instance.
     *
@@ -36,7 +38,7 @@ class LeadersController extends Controller
      */
     public function create()
     {
-        return view('ministries.leaders.create')->with('pageName', 'Create Leader');
+        return view('ministries.leaders.create')->with('pageName', 'Create Leader')->with('cropSettings',$this->cropSet('leaders'));
     }
 
     /**
@@ -51,20 +53,14 @@ class LeadersController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'name' => 'required',
-            'cover_image' => 'image|nullable|max:1999',
         ]);
 //Handle file upload
-        if ($request->hasFile('cover_image')) {
-//get file name with extension
-$filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-//get file name
-$fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-//get ext
-$extension = $request->file('cover_image')->getClientOriginalExtension();
-//filename to store
-$fileNameToStore = $fileName.'_'.time().'.'.$extension;
-//upload image
-$path = $request->file('cover_image')->storeAs('public/profile_images',$fileNameToStore);
+        if ($request->input('cover_image')!="") {
+            $data = $request->input('cover_image');
+            $path = 'storage/profile_images/';
+            $fileNameToStore = $this->uploadImageBase64($data,$path,'leader','png');
+            if($fileNameToStore == false)
+            return redirect('/leaders')->with('error', 'Upload Failed')->with('pageName', 'Leaders');
         } else {
             $fileNameToStore = "noimage.jpg";
         }
@@ -99,7 +95,7 @@ $path = $request->file('cover_image')->storeAs('public/profile_images',$fileName
     public function edit($id)
     {
         $leader = Leader::find($id);
-        return view('ministries.leaders.edit')->with('leader',$leader)->with('pageName','Leaders');
+        return view('ministries.leaders.edit')->with('leader',$leader)->with('cropSettings',$this->cropSet('leaders'));
   
     }
 
@@ -115,28 +111,22 @@ $path = $request->file('cover_image')->storeAs('public/profile_images',$fileName
         $this->validate($request, [
             'title' => 'required',
             'name' => 'required',
-            'cover_image' => 'image|nullable|max:1999',
         ]);
 
 
 //Handle file upload
-if ($request->hasFile('cover_image')) {
-    //get file name with extension
-    $filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-    //get file name
-    $fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-    //get ext
-    $extension = $request->file('cover_image')->getClientOriginalExtension();
-    //filename to store
-    $fileNameToStore = $fileName.'_'.time().'.'.$extension;
-    //upload image
-    $path = $request->file('cover_image')->storeAs('public/profile_images',$fileNameToStore);
+if ($request->input('cover_image')!="") {
+    $data = $request->input('cover_image');
+    $path = 'storage/profile_images/';
+    $fileNameToStore = $this->uploadImageBase64($data,$path,'leader','png');
+    if($fileNameToStore == false)
+    return redirect('/leaders')->with('error', 'Upload Failed')->with('pageName', 'Leaders');
             } 
 
         $leader = Leader::find($id);
         $leader->title = $request->input('title');
         $leader->name = $request->input('name');
-        if ($request->hasFile('cover_image')) {
+        if ($request->input('cover_image')!="") {
             $leader->cover_image = $fileNameToStore;
         }
         $leader->save();

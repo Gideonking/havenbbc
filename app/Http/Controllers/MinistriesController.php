@@ -7,8 +7,11 @@ use App\Ministry;
 use App\Leader;
 use App\Position;
 use Illuminate\Support\Facades\Storage;
+use App\Traits\ImageUpload;
 class MinistriesController extends Controller
 {
+    use ImageUpload;
+
     public function __construct()
     {
         $this->middleware('auth',['except' => ['index','show']]);
@@ -34,7 +37,7 @@ class MinistriesController extends Controller
     public function create()
     {
         $pageName = 'Create Ministries';
-        return view('ministries.create')->with('pageName', $pageName);
+        return view('ministries.create')->with('pageName', $pageName)->with('cropSettings',$this->cropSet('ministries'));
     }
 
     /**
@@ -48,21 +51,15 @@ class MinistriesController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'cover_image' => 'image|nullable|max:1999',
         ]);
 //Handle file upload
-        if ($request->hasFile('cover_image')) {
-//get file name with extension
-$filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-//get file name
-$fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-//get ext
-$extension = $request->file('cover_image')->getClientOriginalExtension();
-//filename to store
-$fileNameToStore = $fileName.'_'.time().'.'.$extension;
-//upload image
-$path = $request->file('cover_image')->storeAs('public/ministry_images',$fileNameToStore);
-        } else {
+if ($request->input('cover_image') != "") {
+    $data = $request->input('cover_image');
+    $path = 'storage/ministry_images/';
+    $fileNameToStore = $this->uploadImageBase64($data,$path,'ministry','png');
+    if($fileNameToStore == false)
+    return redirect('/ministries/')->with('error', 'Upload Failed')->with('pageName', 'Ministries');
+         } else {
             $fileNameToStore = "noimage.jpg";
         }
         $ministry = new Ministry;
@@ -97,7 +94,7 @@ $path = $request->file('cover_image')->storeAs('public/ministry_images',$fileNam
      */
     public function edit($id)
     { $ministry = Ministry::find($id);
-        return view('ministries.edit')->with('ministry', $ministry)->with('pageName', 'Edit Ministry');
+        return view('ministries.edit')->with('ministry', $ministry)->with('pageName', 'Edit Ministry')->with('cropSettings',$this->cropSet('ministries'));
     }
 
     /**
@@ -112,30 +109,23 @@ $path = $request->file('cover_image')->storeAs('public/ministry_images',$fileNam
         $this->validate($request, [
         'title' => 'required',
         'description' => 'required',
-        'longdescription' => 'required',
-        'cover_image' => 'image|nullable|max:1999',
-    ]);
+        'longdescription' => 'required',]);
 
 
 //Handle file upload
-if ($request->hasFile('cover_image')) {
-          //get file name with extension
-    $filenamewithExt = $request->file('cover_image')->getClientOriginalName();
-    //get file name
-    $fileName = pathinfo($filenamewithExt,PATHINFO_FILENAME);
-    //get ext
-    $extension = $request->file('cover_image')->getClientOriginalExtension();
-    //filename to store
-    $fileNameToStore = $fileName.'_'.time().'.'.$extension;
-    //upload image
-    $path = $request->file('cover_image')->storeAs('public/ministry_images',$fileNameToStore);
-            } 
+if ($request->input('cover_image') != "") {
+    $data = $request->input('cover_image');
+    $path = 'storage/ministry_images/';
+    $fileNameToStore = $this->uploadImageBase64($data,$path,'ministry','png');
+    if($fileNameToStore == false)
+    return redirect('/ministries/')->with('error', 'Upload Failed')->with('pageName', 'Ministries');
+         } 
 
         $ministry = ministry::find($id);
         $ministry->title = $request->input('title');
         $ministry->description = $request->input('description');
         $ministry->longdescription = $request->input('longdescription');
-        if ($request->hasFile('cover_image')) {
+        if ($request->input('cover_image') != "") {
             $ministry->cover_image = $fileNameToStore;
         }
 

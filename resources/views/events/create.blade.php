@@ -28,10 +28,7 @@
         </div>
     </div>
     <br>
-    <div class="form-group">
-            {{Form::label('coverimage','Cover Image')}}
-        {{Form::file('cover_image')}}
-    </div>
+    @include('inc.uploadimage')
     <br>    
     
   {{Form::submit('Submit',['class'=> 'btn btn-primary'])}}
